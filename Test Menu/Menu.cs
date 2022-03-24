@@ -31,7 +31,7 @@ namespace Test_Menu
             {           
                 try
                 {
-                    int option = Convert.ToInt32(ReadLine());
+                    int option = Convert.ToInt32(ReadLine());                  
                     switch (option)
                     {
                         case 1:
@@ -64,7 +64,6 @@ namespace Test_Menu
                 }             
             }
             ReadLine();   
-
         }
     }
 }
