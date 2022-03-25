@@ -3,10 +3,11 @@
 
 namespace Dominio
 {
-    public class Dish
+    public class Waiter
     {
         public int id = 0;
         public string name;
-        public float price;     
+        public string last_name;
+        public int waiter_num;
     }
 }
