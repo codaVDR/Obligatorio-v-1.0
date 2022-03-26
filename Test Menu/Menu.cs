@@ -1,6 +1,6 @@
 ﻿using System;
 using static System.Console;
-using Clases;
+using Dominio;
 
 namespace Test_Menu
 {
