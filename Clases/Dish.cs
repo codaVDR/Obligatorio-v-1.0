@@ -4,14 +4,18 @@ namespace Dominio
 {
     public class Dish
     {
-        public int id = 0;
-        public string name;
-        public float price;     
+        static public int id = 0;
+        private int ID = 0;
+        private string name;
+        private float price;     
 
         public Dish (string name, float price)
         {
             this.name = name;
             this.price = price;
+            this.ID = id;
+
+            id++;
         }
 
         //Métodos de clase

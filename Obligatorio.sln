@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Clases\Dominio.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager", "Manager\Manager.csproj", "{41A0D978-1991-43D2-9A9D-5BD846C176F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validation", "Validation\Validation.csproj", "{3FB490E9-BBB4-4E1A-84E0-186DEF8C1B5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{41A0D978-1991-43D2-9A9D-5BD846C176F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41A0D978-1991-43D2-9A9D-5BD846C176F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41A0D978-1991-43D2-9A9D-5BD846C176F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FB490E9-BBB4-4E1A-84E0-186DEF8C1B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FB490E9-BBB4-4E1A-84E0-186DEF8C1B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FB490E9-BBB4-4E1A-84E0-186DEF8C1B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FB490E9-BBB4-4E1A-84E0-186DEF8C1B5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
