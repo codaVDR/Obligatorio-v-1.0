@@ -2,7 +2,7 @@
 using static System.Console;
 using Dominio;
 
-namespace Test_Menu
+namespace CLI
 {
     class Menu
     {

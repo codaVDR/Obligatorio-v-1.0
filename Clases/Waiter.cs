@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Dominio
 {
     public class Waiter
