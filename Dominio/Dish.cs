@@ -4,8 +4,11 @@ namespace Dominio
 {
     public class Dish
     {
+        //Miembros de la clase
         static public float minimumPrice = 100;
         static public int id = 0;
+
+        //Miembros de la instancia
         private int ID = 0;
         private string name;
         private float price;     
