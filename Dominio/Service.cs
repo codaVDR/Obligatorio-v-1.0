@@ -51,7 +51,7 @@ namespace Dominio
             }
         }
 
-        public float CalculateTotal ()
+        public void CalculateTotal ()
         {
             /*
              * Si la entrega es mediante Delivery se agregan $50 de envío
@@ -60,7 +60,15 @@ namespace Dominio
              */
             float total = 0;
 
-            foreach (var item in this.dishes)
+            foreach (var dish in dishes)
+            {
+                total += dish.Price;
+            }
+
+            if (distance < 2)
+            {
+                total += 50;
+            } else if (distance >= 2)
             {
 
             }
