@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using static System.Console;
 
-
-namespace CLI
+namespace Menu_Highlight
 {
-    class Menu2_test
+    class Menu2_Test
     {
         public static string[] menuOptionsArray = new string[]
         {
@@ -125,5 +122,3 @@ namespace CLI
         }
     }
 }
-    
-
