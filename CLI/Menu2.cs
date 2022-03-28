@@ -6,7 +6,7 @@ using static System.Console;
 
 namespace CLI
 {
-    class Menu2_test
+    public class Menu2
     {
         public static string[] menuOptionsArray = new string[]
         {
@@ -23,7 +23,7 @@ namespace CLI
         private static int y;
 
 
-        static void Main(string[] args)
+        public static void Main()
         {
             bool loop = true;
             int counter = 0;
