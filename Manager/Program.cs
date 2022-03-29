@@ -1,5 +1,4 @@
 ﻿using System;
-using Dominio;
 using CLI;
 
 namespace Manager
@@ -11,7 +10,7 @@ namespace Manager
         static void Main(string[] args)
         {
             Console.WriteLine("Tu padre!");
-            Menu.Display();
+            Menu2_test.Display2();
             //Esta clase pensaba que fuera la que gestiona todas las demás
             //y desde donde se lanza la aplicación. El punto de entrada, digamos.
         }

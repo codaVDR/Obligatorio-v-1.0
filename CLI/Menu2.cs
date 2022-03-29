@@ -6,8 +6,13 @@ using static System.Console;
 
 namespace CLI
 {
-    class Menu2_test
+<<<<<<< HEAD:CLI/Menu2_test.cs
+    public class Menu2_test
+=======
+    public class Menu2
+>>>>>>> 78d23de2f8236110dc603d2ef8f60f6ea260e837:CLI/Menu2.cs
     {
+         
         public static string[] menuOptionsArray = new string[]
         {
             "Listar todos los platos.",
@@ -23,7 +28,11 @@ namespace CLI
         private static int y;
 
 
-        static void Main(string[] args)
+<<<<<<< HEAD:CLI/Menu2_test.cs
+        public static void Display2()
+=======
+        public static void Main()
+>>>>>>> 78d23de2f8236110dc603d2ef8f60f6ea260e837:CLI/Menu2.cs
         {
             
             bool loop = true;
@@ -44,7 +53,7 @@ namespace CLI
             {
                 //ReadKey cuando recibe true oculta la entrada de teclado que pongo. Mientras no presiono Enter se ejecuta el loop.
                 while ((PressedKey = ReadKey(true)).Key != ConsoleKey.Enter)
-                {
+                {                 
                     switch (PressedKey.Key)
                     {
                         case ConsoleKey.DownArrow:
@@ -63,14 +72,14 @@ namespace CLI
 
                     CursorLeft = x;
                     CursorTop = y;
-
+                    Clear(); //provisorio chequear
                     strDrawMenu = DrawMenu(menuOptionsArray, counter);
                 }
 
                 switch (counter)
                 {
                     case 0:
-                        WriteLine("Eligió istar todos los platos.");
+                        WriteLine("Eligió listar todos los platos.");
                         break;
                     case 1:
                         WriteLine("Eligió listar clientes ordenados por apellido.");
@@ -101,6 +110,8 @@ namespace CLI
                 string selectedOption = string.Empty;
                 int highlighted = 0;
 
+                //Clear(); provisorio, chequear
+
                 Array.ForEach(items, element =>
                 {
                     if (highlighted == option)
@@ -114,13 +125,14 @@ namespace CLI
                     }
                     else
                     {
+                        
                         Write(new string(' ', WindowWidth));
                         CursorLeft = 0;
-                        WriteLine(element);
+                        WriteLine(element);                      
                     }
 
                     highlighted++;
-                });
+                });    
                 return selectedOption;
             }
         }
