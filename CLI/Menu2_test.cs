@@ -25,6 +25,7 @@ namespace CLI
 
         static void Main(string[] args)
         {
+            
             bool loop = true;
             int counter = 0;
             ConsoleKeyInfo PressedKey;
@@ -125,5 +126,5 @@ namespace CLI
         }
     }
 }
-    
+
 
