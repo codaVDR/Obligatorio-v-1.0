@@ -1,6 +1,7 @@
 ﻿using System;
 using CLI;
 using Dominio;
+using static Validation.Validator;
 
 namespace Manager
 {
@@ -11,6 +12,7 @@ namespace Manager
         static void Main(string[] args)
         {
             Console.WriteLine("Tu padre!");
+            EsAlfanumerico("cosasas123");
             //Esta clase pensaba que fuera la que gestiona todas las demás
             //y desde donde se lanza la aplicación. El punto de entrada, digamos.
         }
