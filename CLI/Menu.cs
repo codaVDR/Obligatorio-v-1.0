@@ -1,16 +1,15 @@
 ﻿using System;
 using static System.Console;
-using Dominio;
 
 namespace CLI
 {
-    class Menu
+    public class Menu
     {
-        static void Main(string[] args)
+        public static void Display ()
         {
             //Probablemente esto se puede hacer de mejor manera, fue la manera que encontre de hacerlo pero bueno si saben de otro modo se cambia 0 estres.
             //Espero que se entienda todo.
-            ForegroundColor = ConsoleColor.Green; 
+            ForegroundColor = ConsoleColor.Green;
             WriteLine(" ┌──────────────────────────────────────────────────────────────────────┐");
             WriteLine(" │                                Menú                                  │");
             WriteLine(" │                                                                      │");
@@ -25,13 +24,13 @@ namespace CLI
             WriteLine(" │                                                                      │");
             WriteLine(" │                                                     - [6]Salir       │");
             WriteLine(" └──────────────────────────────────────────────────────────────────────┘");
-       
+
             bool exit = false;
             while (!exit)
-            {           
+            {
                 try
                 {
-                    int option = Convert.ToInt32(ReadLine());                  
+                    int option = Convert.ToInt32(ReadLine());
                     switch (option)
                     {
                         case 1:
@@ -48,7 +47,7 @@ namespace CLI
                             break;
                         case 5:
                             WriteLine("Elegiste la opcion numero 5");
-                            break;                    
+                            break;
                         case 6:
                             WriteLine("Elegiste salir del programa");
                             exit = true;
@@ -57,18 +56,14 @@ namespace CLI
                             WriteLine("Por favor, ingrese solo números de una cifra del 1 al 7");
                             break;
                     }
-                }catch (FormatException) //Format exception esta buenisimo, se podria darle un nombre y que tire el error en ingles, decidi tirar el mismo error en los 2 casos. Dejo el codigo comentado igual 
+                }
+                catch (FormatException) //Format exception esta buenisimo, se podria darle un nombre y que tire el error en ingles, decidi tirar el mismo error en los 2 casos. Dejo el codigo comentado igual 
                 {
                     //WriteLine(error.Message); Error es una variable que creariamos poniendola despues de FormatException. Es decir arriba quedaria (FormatException error) y aca tiras el .Message de esa clase.
                     WriteLine("Por favor, ingrese solo números de una cifra del 1 al 7");
-                }             
+                }
             }
-            ReadLine();   
+            ReadLine();
         }
     }
 }
-
-
-
-
-

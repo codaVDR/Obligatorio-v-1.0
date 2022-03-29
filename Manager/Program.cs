@@ -1,4 +1,6 @@
 ﻿using System;
+using CLI;
+using Dominio;
 
 namespace Manager
 {
