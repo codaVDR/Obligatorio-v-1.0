@@ -6,11 +6,8 @@ using static System.Console;
 
 namespace CLI
 {
-<<<<<<< HEAD:CLI/Menu2_test.cs
-    public class Menu2_test
-=======
     public class Menu2
->>>>>>> 78d23de2f8236110dc603d2ef8f60f6ea260e837:CLI/Menu2.cs
+
     {
          
         public static string[] menuOptionsArray = new string[]
@@ -28,11 +25,7 @@ namespace CLI
         private static int y;
 
 
-<<<<<<< HEAD:CLI/Menu2_test.cs
-        public static void Display2()
-=======
         public static void Main()
->>>>>>> 78d23de2f8236110dc603d2ef8f60f6ea260e837:CLI/Menu2.cs
         {
             
             bool loop = true;
