@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Dominio
 {
     class Service
     {
         // Clase base de los dos servicios: local y delivery
-        DateTime fecha;
+        public DateTime fecha;
+        public List<Dish> dishes;
+
+        public Service ()
+        {
+            dishes = new List<Dish>();
+        }
     }
     
     class Delivery : Service
@@ -14,7 +21,7 @@ namespace Dominio
         private string address;
         private float distance;
 
-        public Delivery (string address, float distance)
+        public Delivery (string address, float distance) : base ()
         {
             this.address = address;
             this.distance = distance;
@@ -44,6 +51,28 @@ namespace Dominio
             }
         }
 
+        public void CalculateTotal ()
+        {
+            /*
+             * Si la entrega es mediante Delivery se agregan $50 de envío
+             * en las distancias menores a 2 km, y va a aumentando $10 por
+             * cada kilómetro, hasta un máximo de $100. 
+             */
+            float total = 0;
+
+            foreach (var dish in dishes)
+            {
+                total += dish.Price;
+            }
+
+            if (distance < 2)
+            {
+                total += 50;
+            } else if (distance >= 2)
+            {
+
+            }
+        }
     } 
 
     class Local : Service
@@ -53,7 +82,7 @@ namespace Dominio
         private Client guest;
         private float cover;
         
-        public Local (int table, Client guest, float cover)
+        public Local (int table, Client guest, float cover) : base ()
         {
             this.table = table;
             this.guest = guest;
