@@ -53,6 +53,12 @@ namespace Dominio
         {
             //Implementar
         }
+
+        public static bool ValidarDatos(string nombre, float precio)
+        {
+            return !string.IsNullOrWhiteSpace(nombre)
+                && precio > minimumPrice;
+        }
     }
 
 
