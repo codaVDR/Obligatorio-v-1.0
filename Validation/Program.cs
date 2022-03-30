@@ -2,6 +2,7 @@
 
 namespace Validation
 {
+    //Un comentario
     public class Validator
     {
         public static bool SinNumeros(string word)
