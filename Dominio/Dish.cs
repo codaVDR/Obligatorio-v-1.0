@@ -59,6 +59,21 @@ namespace Dominio
             return !string.IsNullOrWhiteSpace(nombre)
                 && precio > minimumPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Dish plato && name == plato.name && price == plato.price && ID == plato.ID;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.name} || {this.price}";
+        }
+        
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
 
