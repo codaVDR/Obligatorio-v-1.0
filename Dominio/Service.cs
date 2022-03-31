@@ -60,7 +60,7 @@ namespace Dominio
 
         public float CalculateTotal ()
         {
-            /*
+             /*
              * Si la entrega es mediante Delivery se agregan $50 de envío
              * en las distancias menores a 2 km, y va a aumentando $10 por
              * cada kilómetro, hasta un máximo de $100. 
@@ -89,14 +89,13 @@ namespace Dominio
     {
         // Clase derivada de la base Service
         private int table;
-        private Client guest;
-        private float cover;
+        private List<Client> guests;
+        private static float cover = 100;
         
-        public Local (DateTime date, int table, Client guest, float cover) : base (date)
+        public Local (DateTime date, int table) : base (date)
         {
             this.table = table;
-            this.guest = guest;
-            this.cover = cover;
+            this.guests = new List<Client> ();
         }
         public int Table
         {
@@ -111,16 +110,37 @@ namespace Dominio
             }
         } 
 
-        public Client Guest
+        public float CalculateTotal ()
+        {
+            float total = 0;
+            foreach (var guest in guests)
+            {
+                total += cover;
+            }
+            foreach (var dish in dishes)
+            {
+                total += dish.Price;
+            }
+            float tip = (float)(total * 0.1);
+
+            return total + tip;
+        }
+
+        public void AddGuest (Client guest)
+        {
+            guests.Add(guest);
+        }
+
+        public List<Client> Guest
         {
             get
             {
-                return guest;
+                return guests;
             }
 
             set
             {
-                guest = value;
+                guests = value;
             }
         }
 
