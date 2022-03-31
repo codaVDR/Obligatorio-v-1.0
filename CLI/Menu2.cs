@@ -25,7 +25,7 @@ namespace CLI
         private static int y;
 
 
-        public static void Main()
+        public static void Display2()
         {
             
             bool loop = true;

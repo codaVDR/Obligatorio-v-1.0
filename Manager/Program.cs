@@ -10,7 +10,7 @@ namespace Manager
         static void Main(string[] args)
         {
             Console.WriteLine("Tu padre!");
-            Menu2_test.Display2();
+            Menu2.Display2();
             //Esta clase pensaba que fuera la que gestiona todas las demás
             //y desde donde se lanza la aplicación. El punto de entrada, digamos.
         }
