@@ -1,7 +1,6 @@
 ﻿using System;
 using Dominio;
 using static Validation.Validator;
-using static Manager.Manager;
 
 namespace Manager
 {
