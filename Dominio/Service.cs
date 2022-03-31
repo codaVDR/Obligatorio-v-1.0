@@ -131,7 +131,7 @@ namespace Dominio
             guests.Add(guest);
         }
 
-        public List<Client> Guest
+        public List<Client> Guests
         {
             get
             {
