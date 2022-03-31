@@ -6,16 +6,26 @@ namespace Validation
     {
         public static bool SinNumeros(string word)
         {
-            if (word.Contains("s"))
-                    return false;
-            else
-                return true;
+            char[] palabra = word.ToCharArray();
+            bool ok = false; 
+
+            foreach (var item in palabra)
+            {
+                if (char.IsNumber(item))
+                    ok= false;
+                else
+                    ok=true;
+            }
+
+            return ok;
+
         }
+
         public static bool EsValido(string email)
         {
             bool valido = false;
 
-            if (email.IndexOf("@") != -1 && email.IndexOf("@") != 0 && email.IndexOf("@") != email.Length - 1)
+            if (email.IndexOf("@") != -1 && email.IndexOf("@") != 0 && email.IndexOf("@") != email.Length - 1 && email.Contains("."))
             {
                 valido = true;
             }
@@ -62,27 +72,12 @@ namespace Validation
                 else
                 {
                     valido = false;
-                    ///break to end? 
+                    break;
                 }
             }
 
             return valido;
         }
 
-        public static bool EsUnico(int id)
-            {
-                bool idUnico = true;
-
-                while (idUnico) {
-                for (int i=0; i<5; i++) 
-                {
-                    if (id == 1) {
-                        idUnico=false;
-                        break;
-                    }
-}
-                }
-                return idUnico;
-            }
     }
 }
