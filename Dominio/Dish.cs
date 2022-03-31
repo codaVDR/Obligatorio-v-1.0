@@ -53,7 +53,29 @@ namespace Dominio
         {
             //Implementar
         }
+
+        public static bool ValidarDatos(string nombre, float precio)
+        {
+            return !string.IsNullOrWhiteSpace(nombre)
+                && precio > minimumPrice;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Dish plato && name == plato.name && price == plato.price && ID == plato.ID;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.name} || {this.price}";
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
+}
 
 
 }
