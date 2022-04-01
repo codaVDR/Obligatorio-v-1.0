@@ -13,7 +13,7 @@ namespace Manager
             PrecargarDatos();
         }
 
-        public void PrecargarDatos()
+        public void PrecargarDishes ()
         {
             Dish plato1 = AltaPlatos("Sushi", 490);
             Dish plato2 = AltaPlatos("Ñoquis", 600);
@@ -25,7 +25,22 @@ namespace Manager
             Dish plato8 = AltaPlatos("Sandwich Caliente", 220);
             Dish plato9 = AltaPlatos("Pollo", 450);
             Dish plato10 = AltaPlatos("Hamburguesa", 350);
+        }
 
+        public void PrecargarClients ()
+        {
+            //Falta implementar
+        }
+
+        public void PrecargarDatos()
+        {
+            PrecargarDishes();
+            PrecargarClients();
+        }
+
+        public void AltaCliente ()
+        {
+            // Falta implementar: cambiar valor de retorno a Client.
         }
 
         public Dish AltaPlatos(string name, float price)
