@@ -127,6 +127,7 @@ namespace CLI
                     highlighted++;
                 });    
                 return selectedOption;
+                //mic check
             }
         }
     }
