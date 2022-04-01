@@ -11,7 +11,7 @@ namespace Manager
         {
             Console.WriteLine("Tu padre!");
 
-            Console.WriteLine(EsAlfanumerico("cosasas123"));
+            Console.WriteLine(EsSegura("cosasas123"));
 
             Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
 

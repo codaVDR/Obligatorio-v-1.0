@@ -11,4 +11,3 @@ namespace Dominio
         //public string vehicle; PODRÍA SER UN ENUM
     }
 }
-g
