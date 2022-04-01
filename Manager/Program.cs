@@ -13,8 +13,7 @@ namespace Manager
 
             Console.WriteLine(EsAlfanumerico("cosasas123"));
 
-            Client client1 = new Client("Ignacio", "Ribas", "iribastrillo@gmail.com", "12345");
-            Client client2 = new Client("Christopher", "Pernales", "pernaleschristopher@gmail.com", "12345");
+            Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
 
             Manager manager = new Manager();
 
@@ -22,7 +21,6 @@ namespace Manager
             Local local = new Local(DateTime.Now, 1);
 
             local.AddGuest(client1);
-            local.AddGuest(client2);
             local.AddDish(manager.Dishes[1]);
             local.AddDish(manager.Dishes[2]);
 
