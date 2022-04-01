@@ -95,4 +95,31 @@ namespace Testing
             Assert.IsFalse(result);
         }
     }
+
+    [TestClass]
+    public class DishTests
+    {
+        [TestMethod]
+        public void TestValidarDatosOK ()
+        {
+            string test_name = "Sushi";
+            float test_price = 500;
+
+            bool result = Dish.ValidarDatos(test_name, test_price);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void TestValidarDatosNOTOK()
+        {
+            string test_name = "";
+            float test_price = 110;
+
+            bool result = Dish.ValidarDatos(test_name, test_price);
+
+            Assert.IsFalse(result);
+        }
+
+    }
 }
