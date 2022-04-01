@@ -92,11 +92,9 @@ namespace Dominio
         private List<Client> guests;
         private static float cover = 100;
         
-<<<<<<< HEAD
-        public Local (DateTime date, int table, Client guest, float cover) : base (date)
-=======
+
         public Local (DateTime date, int table) : base (date)
->>>>>>> c12911b59a3f25ec08988aace350418a0cd440ee
+
         {
             this.table = table;
             this.guests = new List<Client> ();

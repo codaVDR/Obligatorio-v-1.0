@@ -75,10 +75,4 @@ namespace Dominio
             return base.GetHashCode();
         }
     }
-<<<<<<< HEAD
-}
-
-
-=======
->>>>>>> c12911b59a3f25ec08988aace350418a0cd440ee
 }

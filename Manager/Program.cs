@@ -1,8 +1,5 @@
 ﻿using System;
-<<<<<<< HEAD
 using CLI;
-=======
->>>>>>> c12911b59a3f25ec08988aace350418a0cd440ee
 using Dominio;
 using static Validation.Validator;
 
@@ -14,18 +11,11 @@ namespace Manager
         static void Main(string[] args)
         {
             Console.WriteLine("Tu padre!");
-<<<<<<< HEAD
-<<<<<<< .merge_file_a19380
-            Menu2.Display2();
-=======
 
             Console.WriteLine(EsAlfanumerico("cosasas123!"));
 
 
->>>>>>> .merge_file_a19220
-            //Esta clase pensaba que fuera la que gestiona todas las demás
-            //y desde donde se lanza la aplicación. El punto de entrada, digamos.
-=======
+
 
             Console.WriteLine(EsAlfanumerico("cosasas123"));
 
@@ -52,7 +42,7 @@ namespace Manager
 
             Console.WriteLine(local.CalculateTotal());
 
->>>>>>> c12911b59a3f25ec08988aace350418a0cd440ee
+
         }
 
     }
