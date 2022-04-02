@@ -49,7 +49,7 @@ namespace Dominio
 
         //Métodos de clase
 
-        public static void ModificarMinimo (float minimo)
+        public static void UpdateMinimum (float minimo)
         {
             minimumPrice = minimo;
         }

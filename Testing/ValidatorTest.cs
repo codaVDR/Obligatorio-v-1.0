@@ -121,5 +121,15 @@ namespace Testing
             Assert.IsFalse(result);
         }
 
+        [TestMethod]
+        public void TestUpdateMinimumOK ()
+        {
+            float testUpdated = 200;
+
+            Dish.UpdateMinimum(testUpdated);
+
+            Assert.AreEqual(Dish.minimumPrice, testUpdated);
+        }
+
     }
 }
