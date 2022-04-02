@@ -51,7 +51,7 @@ namespace Dominio
 
         public static void ModificarMinimo (float minimo)
         {
-            //Implementar
+            minimumPrice = minimo;
         }
 
         public static bool ValidarDatos(string nombre, float precio)
