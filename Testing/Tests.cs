@@ -6,7 +6,7 @@ using System;
 namespace Testing
 {
     [TestClass]
-    public class ValidationTests
+    public class Tests
     {
         [TestMethod]
         public void TestSinNumerosOK()
@@ -155,7 +155,6 @@ namespace Testing
             float expectedResult = (float)(basePrice * 1.1);
 
             Assert.AreEqual(expectedResult, testLocal.CalculateTotal());
-
          }
     }
 }
