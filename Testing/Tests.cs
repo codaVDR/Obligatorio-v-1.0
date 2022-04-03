@@ -6,7 +6,7 @@ using System;
 namespace Testing
 {
     [TestClass]
-    public class Tests
+    public class ValidationTests
     {
         [TestMethod]
         public void TestSinNumerosOK()
@@ -152,7 +152,8 @@ namespace Testing
             float cover = testLocal.Cover;
 
             float basePrice = 400 + 600 + testLocal.Guests.Count * cover;
-            float expectedResult = (float)(basePrice * 1.1);
+            float tip = (float)(basePrice * 0.1);
+            float expectedResult = basePrice + tip;
 
             Assert.AreEqual(expectedResult, testLocal.CalculateTotal());
          }

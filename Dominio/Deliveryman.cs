@@ -1,16 +1,21 @@
 ﻿using System;
 
-
 namespace Dominio
 {
     public class Deliveryman : Person
     {
-        public string name;
-        public string last_name;
-
-        public Deliveryman(string name, string last_name) : base (name, last_name)
+        private Vehicle vehicle;
+        public Deliveryman(string name, string last_name, Vehicle vehicle) : base (name, last_name)
         {
-            //Acá debería implementarse la asignación de un vehículo para este objeto.
+            Vehicle = vehicle;
         }
+        public Vehicle Vehicle { get => vehicle; set => vehicle = value; }
+    }
+
+    public enum Vehicle
+    {
+        Moto,
+        Bicicleta,
+        Pie
     }
 }

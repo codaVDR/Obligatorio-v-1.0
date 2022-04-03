@@ -21,7 +21,7 @@ namespace Manager
             local.AddDish(manager.Dishes[1]);
             local.AddDish(manager.Dishes[2]);
 
-            foreach (var dish in local.dishes)
+            foreach (var dish in local.Dishes)
             {
                 Console.WriteLine(dish);
             }

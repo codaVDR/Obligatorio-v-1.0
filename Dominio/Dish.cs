@@ -6,10 +6,10 @@ namespace Dominio
     {
         //Miembros de la clase
         static public float minimumPrice = 100;
-        static public int id = 0;
+        static public int n = 0;
 
         //Miembros de la instancia
-        private int ID = 0;
+        private int iD = 0;
         private string name;
         private float price;     
 
@@ -22,7 +22,7 @@ namespace Dominio
 
             set
             {
-                //Falta implementar
+                name = value;
             }
         }
 
@@ -34,17 +34,19 @@ namespace Dominio
             }
             set
             {
-                //Falta implementar
+                price = value;
             }
         }
 
+        public int ID { get => iD; set => iD = value; }
+
         public Dish (string name, float price)
         {
-            this.name = name;
-            this.price = price;
-            this.ID = id;
+            Name = name;
+            Price = price;
+            ID = n;
 
-            id++;
+            n++;
         }
 
         //Métodos de clase
