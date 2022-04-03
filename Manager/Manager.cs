@@ -6,6 +6,7 @@ namespace Manager
 {
     public class Manager
     {
+
         private List<Dish> dishes = new List<Dish>();
 
         public Manager()

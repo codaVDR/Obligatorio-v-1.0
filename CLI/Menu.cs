@@ -5,65 +5,120 @@ namespace CLI
 {
     public class Menu
     {
-        public static void Display ()
+        public static string[] menuOptionsArray = new string[]
         {
-            //Probablemente esto se puede hacer de mejor manera, fue la manera que encontre de hacerlo pero bueno si saben de otro modo se cambia 0 estres.
-            //Espero que se entienda todo.
-            ForegroundColor = ConsoleColor.Green;
-            WriteLine(" ┌──────────────────────────────────────────────────────────────────────┐");
-            WriteLine(" │                                Menú                                  │");
-            WriteLine(" │                                                                      │");
-            WriteLine(" │  - Listar todos los platos                            [1]            │");
-            WriteLine(" │  - Listar clientes ordenado por apellido              [2]            │");
-            WriteLine(" │  - Listar servicios entregados por un repartidor                     │");
-            WriteLine(" │      en un rango de fechas dado.                      [3]            │");
-            WriteLine(" │  - Modificar el valor del precio mínimo del plato.    [4]            │");
-            WriteLine(" │  - Dar de alta a un mozo                              [5]            │");
-            WriteLine(" │                                                                      │");
-            WriteLine(" │                                                                      │");
-            WriteLine(" │                                                                      │");
-            WriteLine(" │                                                     - [6]Salir       │");
-            WriteLine(" └──────────────────────────────────────────────────────────────────────┘");
+            "Listar todos los platos.",
+            "Listar clientes ordenados por apellido.",
+            "Listar servicios entregados por un repartidor en un rango de fechas dado.",
+            "Modificar el valor del precio mínimo del plato.",
+            "Dar de alta a un mozo.",
+            "Salir."
+        };
 
-            bool exit = false;
-            while (!exit)
+        //Posicion del cursor en la consola
+        private static int x;
+        private static int y;
+
+
+        public static void Display()
+        {
+            bool loop = true;
+            int counter = 0;
+            ConsoleKeyInfo PressedKey;
+
+            //Oculto cursor
+            CursorVisible = false;
+            WriteLine("Bienvenido usuario, seleccione una opcion porfavor." + Environment.NewLine);
+
+            //Obteniendo posiciones del cursor
+            x = CursorLeft;
+            y = CursorTop;
+
+            string strDrawMenu = DrawMenu(menuOptionsArray, counter);
+
+            while (loop)
             {
-                try
+                //ReadKey cuando recibe true oculta la entrada de teclado que pongo. Mientras no presiono Enter se ejecuta el loop.
+                while ((PressedKey = ReadKey(true)).Key != ConsoleKey.Enter)
                 {
-                    int option = Convert.ToInt32(ReadLine());
-                    switch (option)
+                    switch (PressedKey.Key)
                     {
-                        case 1:
-                            WriteLine("Elegiste la opcion numero 1");
+                        case ConsoleKey.DownArrow:
+                            //Validacion para que el cursor no se vaya hacia arriba, toma la cantidad de opciones del array. Pasa a la siguiente iteracion del bucle
+                            if (counter == menuOptionsArray.Length - 1) continue;
+                            counter++;
                             break;
-                        case 2:
-                            WriteLine("Elegiste la opcion numero 2");
-                            break;
-                        case 3:
-                            WriteLine("Elegiste la opcion numero 3");
-                            break;
-                        case 4:
-                            WriteLine("Elegiste la opcion numero 4");
-                            break;
-                        case 5:
-                            WriteLine("Elegiste la opcion numero 5");
-                            break;
-                        case 6:
-                            WriteLine("Elegiste salir del programa");
-                            exit = true;
+                        case ConsoleKey.UpArrow:
+                            //Validacion para que el cursor no se vaya hacia arriba. Pasa a la siguiente iteracion del bucle
+                            if (counter == 0) continue;
+                            counter--;
                             break;
                         default:
-                            WriteLine("Por favor, ingrese solo números de una cifra del 1 al 7");
                             break;
                     }
+
+                    CursorLeft = x;
+                    CursorTop = y;
+                    Clear(); //provisorio chequear
+                    strDrawMenu = DrawMenu(menuOptionsArray, counter);
                 }
-                catch (FormatException) //Format exception esta buenisimo, se podria darle un nombre y que tire el error en ingles, decidi tirar el mismo error en los 2 casos. Dejo el codigo comentado igual 
+
+                switch (counter)
                 {
-                    //WriteLine(error.Message); Error es una variable que creariamos poniendola despues de FormatException. Es decir arriba quedaria (FormatException error) y aca tiras el .Message de esa clase.
-                    WriteLine("Por favor, ingrese solo números de una cifra del 1 al 7");
+                    case 0:
+                        WriteLine("Eligió istar todos los platos.");
+                        break;
+                    case 1:
+                        WriteLine("Eligió listar clientes ordenados por apellido.");
+                        break;
+                    case 2:
+                        WriteLine("Eligió listar servicios entregados por un repartidor en un rango de fechas dado.");
+                        break;
+                    case 3:
+                        WriteLine("Eligió modificar el valor del precio mínimo del plato.");
+                        break;
+                    case 4:
+                        WriteLine("Eligió dar de alta a un mozo.");
+                        break;
+                    case 5:
+                        WriteLine("Eligió salir, hasta luego!");
+                        loop = false;
+                        ReadKey();
+                        break;
+                    default:
+                        break;
                 }
+
             }
-            ReadLine();
+        }
+
+        //Encuentro la opcion seleccionada, la pinto.
+        private static string DrawMenu(string[] items, int option)
+        {
+            string selectedOption = string.Empty;
+            int highlighted = 0;
+
+            Array.ForEach(items, element =>
+            {
+                if (highlighted == option)
+                {
+                    ForegroundColor = ConsoleColor.Green;
+                    BackgroundColor = ConsoleColor.DarkRed;
+                    WriteLine(element);
+                    ForegroundColor = ConsoleColor.White;
+                    BackgroundColor = ConsoleColor.Black;
+                    selectedOption = element;
+                }
+                else
+                {
+                    Write(new string(' ', WindowWidth));
+                    CursorLeft = 0;
+                    WriteLine(element);
+                }
+
+                highlighted++;
+            });
+            return selectedOption;
         }
     }
 }

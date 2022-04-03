@@ -10,7 +10,7 @@ namespace Manager
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Tu padre!");
+            CLI.Menu.Display();
 
             Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
 
