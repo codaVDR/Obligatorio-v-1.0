@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Validation.Validator;
+using Manager;
 using Dominio;
 using System;
 
@@ -169,6 +170,22 @@ namespace Testing
 
             Assert.AreNotEqual(client_test1.ID, client_test2.ID);
 
+        }
+    }
+
+    [TestClass]
+    public class AltasTests
+    {
+        [TestMethod]
+        public void AltaPlatoOK ()
+        {
+            string testName = "Sushi";
+            float testPrice = 400;
+            Manager.Manager testManager = new Manager.Manager();
+
+            Dish testDish = testManager.AltaPlato(testName, testPrice);
+
+            Assert.IsNotNull(testDish);
         }
     }
 }

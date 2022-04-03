@@ -15,16 +15,16 @@ namespace Manager
 
         public void PrecargarDishes ()
         {
-            Dish plato1 = AltaPlatos("Sushi", 490);
-            Dish plato2 = AltaPlatos("Ñoquis", 600);
-            Dish plato3 = AltaPlatos("Pizza", 490);
-            Dish plato4 = AltaPlatos("Napolitana", 660);
-            Dish plato5 = AltaPlatos("Ensalada", 390);
-            Dish plato6 = AltaPlatos("Chivito", 550);
-            Dish plato7 = AltaPlatos("Rabas", 900);
-            Dish plato8 = AltaPlatos("Sandwich Caliente", 220);
-            Dish plato9 = AltaPlatos("Pollo", 450);
-            Dish plato10 = AltaPlatos("Hamburguesa", 350);
+            Dish plato1 = AltaPlato("Sushi", 490);
+            Dish plato2 = AltaPlato("Ñoquis", 600);
+            Dish plato3 = AltaPlato("Pizza", 490);
+            Dish plato4 = AltaPlato("Napolitana", 660);
+            Dish plato5 = AltaPlato("Ensalada", 390);
+            Dish plato6 = AltaPlato("Chivito", 550);
+            Dish plato7 = AltaPlato("Rabas", 900);
+            Dish plato8 = AltaPlato("Sandwich Caliente", 220);
+            Dish plato9 = AltaPlato("Pollo", 450);
+            Dish plato10 = AltaPlato("Hamburguesa", 350);
         }
 
         public void PrecargarClients ()
@@ -43,7 +43,12 @@ namespace Manager
             // Falta implementar: cambiar valor de retorno a Client.
         }
 
-        public Dish AltaPlatos(string name, float price)
+        public void AltaMozo ()
+        {
+            //Falta emplementar.
+        }
+
+        public Dish AltaPlato(string name, float price)
         {
             bool validado = Dish.ValidarDatos(name, price);
 
