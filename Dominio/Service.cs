@@ -6,18 +6,21 @@ namespace Dominio
     public class Service
     {
         // Clase base de los dos servicios: local y delivery
-        public DateTime date;
-        public List<Dish> dishes;
+        private DateTime date;
+        private List<Dish> dishes;
+
+        public DateTime Date { get => date; set => date = value; }
+        public List<Dish> Dishes { get => dishes; set => dishes = value; }
 
         public Service (DateTime date)
         {
-            this.dishes = new List<Dish>();
-            this.date = date;
+            this.Dishes = new List<Dish>();
+            this.Date = date;
         }
 
         public void AddDish (Dish dish)
         {
-            dishes.Add(dish);
+            Dishes.Add(dish);
         }
     }
     
@@ -68,7 +71,7 @@ namespace Dominio
             float total = 50;
             float extra = 0;
 
-            foreach (var dish in dishes)
+            foreach (var dish in Dishes)
             {
                 total += dish.Price;
             }
@@ -117,7 +120,7 @@ namespace Dominio
             {
                 total += cover;
             }
-            foreach (var dish in dishes)
+            foreach (var dish in Dishes)
             {
                 total += dish.Price;
             }

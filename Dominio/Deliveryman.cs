@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Dominio
 {
     public class Deliveryman : Person
@@ -15,8 +14,8 @@ namespace Dominio
 
     public enum Vehicle
     {
-        MOTO,
-        BICICLETA,
-        PIE
+        Moto,
+        Bicicleta,
+        Pie
     }
 }
