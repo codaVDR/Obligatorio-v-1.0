@@ -6,13 +6,16 @@ namespace Dominio
 {
     public class Client : Person
     {
-        public string email;
-        public string password;
+        private string email;
+        private string password;
+
+        public string Email { get => email; set => email = value; }
+        public string Password { get => password; set => password = value; }
 
         public Client (string name, string last_name, string email, string password) : base (name, last_name)
         {
-            this.email = email;
-            this.password = password;
+            this.Email = email;
+            this.Password = password;
         }
 
         public static bool isValid (string name, string last_name, string email, string password)
@@ -28,12 +31,12 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{Last_name} || {Name} || {email}";
+            return $"{Last_name} || {Name} || {Email}";
         }
 
         public override bool Equals(object obj)
         {
-             return obj is Client client && Name == client.Name && Last_name == client.email;
+             return obj is Client client && Name == client.Name && Last_name == client.Email;
         }
         public override int GetHashCode()
         {
