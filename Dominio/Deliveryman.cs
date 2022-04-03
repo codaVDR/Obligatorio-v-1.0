@@ -3,11 +3,14 @@
 
 namespace Dominio
 {
-    public class Deliveryman
+    public class Deliveryman : Person
     {
-        public int id = 0;
         public string name;
         public string last_name;
-        //public string vehicle; PODRÍA SER UN ENUM
+
+        public Deliveryman(string name, string last_name) : base (name, last_name)
+        {
+            //Acá debería implementarse la asignación de un vehículo para este objeto.
+        }
     }
 }

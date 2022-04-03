@@ -157,4 +157,18 @@ namespace Testing
             Assert.AreEqual(expectedResult, testLocal.CalculateTotal());
          }
     }
+
+    [TestClass]
+    public class AutoIDTest
+    {
+        [TestMethod]
+        public void AutoIDOK ()
+        {
+            Client client_test1 = new Client("Alfonso", "Capablanca", "alfonso@capablanca.com", "Alfon1234");
+            Client client_test2 = new Client("Ramón", "Yedrabuena", "ramon@yedrabuena.com", "Ramon1234");
+
+            Assert.AreNotEqual(client_test1.ID, client_test2.ID);
+
+        }
+    }
 }
