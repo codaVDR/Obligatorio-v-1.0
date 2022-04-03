@@ -1,4 +1,5 @@
 ﻿using System;
+using CLI;
 using Dominio;
 using static Validation.Validator;
 
@@ -9,9 +10,7 @@ namespace Manager
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Tu padre!");
-
-            Console.WriteLine(EsSegura("cosasas123"));
+            CLI.Menu.Display();
 
             Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
 
@@ -35,6 +34,7 @@ namespace Manager
             }
 
             Console.WriteLine(local.CalculateTotal());
+
 
         }
 
