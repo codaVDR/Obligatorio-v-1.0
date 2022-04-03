@@ -41,11 +41,20 @@ namespace Manager
 
         public Client AltaCliente (string name, string last_name, string email, string password)
         {
-            // Falta implementar: cambiar valor de retorno a Client.
             return null;
         }
 
         public Waiter AltaMozo (string name, string last_name, int wnum)
+        {
+            return null;
+        }
+
+        public Deliveryman AltaRepartidor (string name, string last_name)
+        {
+            return null;
+        }
+
+        public Service AltaServcio ()
         {
             return null;
         }
