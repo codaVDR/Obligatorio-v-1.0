@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Validation.Validator;
-using Manager;
 using Dominio;
 using System;
 
@@ -186,6 +185,33 @@ namespace Testing
             Dish testDish = testManager.AltaPlato(testName, testPrice);
 
             Assert.IsNotNull(testDish);
+        }
+
+        [TestMethod]
+        public void AltaClienteOK ()
+        {
+            string testName = "Alfonso";
+            string testLastName = "Casales";
+            string testEmail = "alfonso@casales.com";
+            string testPassword = "Alfon1234";
+            Manager.Manager testManager = new Manager.Manager();
+
+            Client testClient = testManager.AltaCliente(testName, testLastName, testEmail, testPassword);
+
+            Assert.IsNotNull(testClient);
+        }
+
+        [TestMethod]
+        public void AltaMozoOK()
+        {
+            string testName = "Adolfo";
+            string testLastName = "Bioy Casares";
+            int testWN = 1;
+            Manager.Manager testManager = new Manager.Manager();
+
+            Waiter testWaiter = testManager.AltaMozo(testName, testLastName, testWN);
+
+            Assert.IsNotNull(testWaiter);
         }
     }
 }

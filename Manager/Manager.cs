@@ -39,14 +39,15 @@ namespace Manager
             PrecargarClients();
         }
 
-        public void AltaCliente ()
+        public Client AltaCliente (string name, string last_name, string email, string password)
         {
             // Falta implementar: cambiar valor de retorno a Client.
+            return null;
         }
 
-        public void AltaMozo ()
+        public Waiter AltaMozo (string name, string last_name, int wnum)
         {
-            //Falta emplementar.
+            return null;
         }
 
         public Dish AltaPlato(string name, float price)
