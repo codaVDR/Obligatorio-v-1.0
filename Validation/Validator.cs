@@ -24,39 +24,63 @@ namespace Validation
 
         public static bool EsValido(string email)
         {
-            bool valido = false;
-
-            if (email.IndexOf("@") != -1 && email.IndexOf("@") != 0 && email.IndexOf("@") != email.Length - 1 && email.Contains("."))
-            {
-                valido = true;
-            }
-
-            return valido;
+            return email.IndexOf("@") != -1 && email.IndexOf("@") != 0 && email.IndexOf("@") != email.Length - 1 && email.Contains(".");
         }
-        public static bool EsSegura(string password)
-        {
-            bool segura = false;
 
-            if (password.Length >= 6)
+        public static bool TieneLetrasMayus(string password)
+        {
+            char[] passw = password.ToCharArray();
+            string mayusculas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+            bool validoMayusculas = false;
+
+
+            foreach (var item in passw)
             {
-                for (int i = 0; i < password.Length; i++)
+                if (mayusculas.IndexOf(item) != -1)
                 {
-                    if (char.IsUpper(password[i]) || char.IsLower(password[i]))
-                    {
-                        segura = true;
-                    }
-                    else
-                    {
-                        segura = false;
-                    }
+                    validoMayusculas = true;
                 }
             }
-            else
+
+            return validoMayusculas;
+        }
+
+        public static bool TieneLetrasMinus(string password)
+        {
+            char[] passw = password.ToCharArray();
+            string minusculas = "abcdefghijklmnñopqrstuvwxyz";
+            bool validoMinusculas = false;
+
+            foreach (var item in passw)
             {
-                segura = false;
+                if (minusculas.IndexOf(item) != -1)
+                {
+                    validoMinusculas = true;
+                }
             }
 
-            return segura;
+            return validoMinusculas;
+        }
+        public static bool TieneNumeros(string password)
+        {
+            char[] passw = password.ToCharArray();
+            string numeros = "0123456789";
+            bool validoNumeros = false;
+
+            foreach (var item in passw)
+            {
+                if (numeros.IndexOf(item) != -1)
+                {
+                    validoNumeros = true;
+                }
+            }
+
+            return validoNumeros;
+        }
+
+        public static bool EsSegura(string password)
+        {
+            return password.Length >= 6 && TieneNumeros(password) && TieneLetrasMinus(password) && TieneLetrasMayus(password);
         }
 
         public static bool EsAlfanumerico(string password)

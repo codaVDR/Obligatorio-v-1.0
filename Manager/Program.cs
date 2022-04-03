@@ -12,12 +12,16 @@ namespace Manager
         {
             Console.WriteLine("Tu padre!");
 
+<<<<<<< HEAD
             Console.WriteLine(EsAlfanumerico("cosasas123!"));
 
 
 
 
             Console.WriteLine(EsAlfanumerico("cosasas123"));
+=======
+            Console.WriteLine(EsSegura("cosasas123"));
+>>>>>>> 7105e6140871ed18d88e6ab6f11a458285223a23
 
             Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
 

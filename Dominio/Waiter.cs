@@ -2,11 +2,15 @@
 
 namespace Dominio
 {
-    public class Waiter
+    public class Waiter : Person
     {
-        public int id = 0;
-        public string name;
-        public string last_name;
-        public int waiter_num;
+        private int wNum;
+
+        public Waiter(string name, string last_name, int wNum) : base (name, last_name)
+        {
+            WNum = wNum;
+        }
+
+        public int WNum { get => wNum; set => wNum = value; } // ¿tiene que ser autoincremental?
     }
 }

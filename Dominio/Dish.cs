@@ -49,9 +49,9 @@ namespace Dominio
 
         //Métodos de clase
 
-        public static void ModificarMinimo (float minimo)
+        public static void UpdateMinimum (float minimo)
         {
-            //Implementar
+            minimumPrice = minimo;
         }
 
         public static bool ValidarDatos(string nombre, float precio)

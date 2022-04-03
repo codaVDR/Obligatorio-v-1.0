@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager", "Manager\Manager.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "Validation\Validation.csproj", "{3FB490E9-BBB4-4E1A-84E0-186DEF8C1B5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI", "CLI\CLI.csproj", "{27B4C94E-8BF4-4458-B198-3DB24C729E03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CLI", "CLI\CLI.csproj", "{27B4C94E-8BF4-4458-B198-3DB24C729E03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{3A1BC3D2-4F90-48C9-8AB2-388B772EE862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{3A1BC3D2-4F90-48C9-8AB2-388B772EE862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{F226F685-8616-49BC-ABAB-18227346A97C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3A1BC3D2-4F90-48C9-8AB2-388B772EE862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A1BC3D2-4F90-48C9-8AB2-388B772EE862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A1BC3D2-4F90-48C9-8AB2-388B772EE862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F226F685-8616-49BC-ABAB-18227346A97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F226F685-8616-49BC-ABAB-18227346A97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F226F685-8616-49BC-ABAB-18227346A97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F226F685-8616-49BC-ABAB-18227346A97C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
