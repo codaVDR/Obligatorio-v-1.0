@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dominio.NewFolder
+namespace Dominio.Enums
 {
         public enum TipoVehiculo
         {
@@ -11,4 +11,3 @@ namespace Dominio.NewFolder
             APie = 3
         }
     }
-}
