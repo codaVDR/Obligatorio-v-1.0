@@ -113,6 +113,7 @@ namespace Dominio
         public float CalculateTotal ()
         {
             float total = 0;
+
             foreach (var guest in guests)
             {
                 total += cover;

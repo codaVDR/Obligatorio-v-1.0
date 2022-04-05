@@ -18,7 +18,7 @@ namespace Dominio
             this.Password = password;
         }
 
-        public static bool isValid (string name, string last_name, string email, string password)
+        public static bool IsValid (string name, string last_name, string email, string password)
         {
             bool isValidName = !string.IsNullOrEmpty (name) && SinNumeros (name);
             bool isValidLastName = !string.IsNullOrEmpty(last_name) && SinNumeros(last_name);
