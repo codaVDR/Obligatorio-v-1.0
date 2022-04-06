@@ -8,6 +8,7 @@ namespace Manager
     {
 
         private List<Dish> dishes = new List<Dish>();
+        private List<Client> clients = new List<Client>();
 
         public Manager()
         {
@@ -28,9 +29,13 @@ namespace Manager
             Dish plato10 = AltaPlato("Hamburguesa", 350);
         }
 
-        public void PrecargarClients ()
+        public void PrecargarClients()
         {
-            //Falta implementar
+            Client cliente1 = AltaCliente("Agustina", "Balsas", "ggnacio@hotmail.com", "agustina1B");
+            Client cliente2 = AltaCliente("Ignacio", "Ribas", "alejo@gmail.com", "ignacio1R");
+            Client cliente3 = AltaCliente("Alejo", "Krucheff", "alejo@outlook.com", "agustina1B");
+            Client cliente4 = AltaCliente("Anaru", "Martínez", "anaru@gmail.com", "Anaru1");
+            Client cliente5 = AltaCliente("Juan", "Rodríguez", "juanr@outlook.com", "juanR13");
         }
 
         public void PrecargarDatos()
@@ -39,10 +44,23 @@ namespace Manager
             PrecargarClients();
         }
 
-        public Client AltaCliente (string name, string last_name, string email, string password)
+        public Client AltaCliente(string name, string last_name, string email, string password)
         {
-            return null;
+            bool validado = Client.IsValid(name, last_name, email, password);
+
+            if (validado == false)
+                return null;
+
+            Client cliente = new Client(name, last_name, email, password);
+
+            if (Clients.Contains(cliente))
+                cliente = null;
+            else
+                clients.Add(cliente);
+
+            return cliente;
         }
+
 
         public Waiter AltaMozo (string name, string last_name, int wnum)
         {
@@ -74,6 +92,21 @@ namespace Manager
                 Dishes.Add(plato);
 
             return plato;
+        }
+
+
+
+        public List<Client> Clients
+        {
+            get
+            {
+                return clients;
+            }
+
+            set
+            {
+                clients = value;
+            }
         }
 
         public List<Dish> Dishes
