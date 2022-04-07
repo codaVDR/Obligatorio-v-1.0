@@ -20,7 +20,7 @@ namespace CLI
         private static int y;
 
 
-        public static void Display()
+        public static int Display()
         {
             bool loop = true;
             int counter = 0;
@@ -66,7 +66,7 @@ namespace CLI
                 switch (counter)
                 {
                     case 0:
-                        WriteLine("Eligió istar todos los platos.");
+                        WriteLine("Eligió listar todos los platos.");
                         break;
                     case 1:
                         WriteLine("Eligió listar clientes ordenados por apellido.");
@@ -87,10 +87,16 @@ namespace CLI
                         break;
                     default:
                         break;
-                }
 
+
+                }
+                return counter;
+
+         
             }
+            return counter;
         }
+
 
         //Encuentro la opcion seleccionada, la pinto.
         private static string DrawMenu(string[] items, int option)

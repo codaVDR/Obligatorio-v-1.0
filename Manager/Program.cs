@@ -1,5 +1,7 @@
 ﻿using System;
 using Dominio;
+using CLI;
+using static System.Console;
 
 namespace Manager
 {
@@ -8,12 +10,42 @@ namespace Manager
 
         static void Main(string[] args)
         {
-            CLI.Menu.Display();
+            int option = Menu.Display();
+            Console.WriteLine(option);
 
             Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
 
+            
+            //switch (option)
+            //{
+            //    case 0:
+            //        //return 0
+            //        WriteLine("Eligió istar todos los platos.");
+            //        break;
+            //    case 1:
+            //        WriteLine("Eligió listar clientes ordenados por apellido.");
+            //        break;
+            //    case 2:
+            //        WriteLine("Eligió listar servicios entregados por un repartidor en un rango de fechas dado.");
+            //        break;
+            //    case 3:
+            //        WriteLine("Eligió modificar el valor del precio mínimo del plato.");
+            //        break;
+            //    case 4:
+            //        WriteLine("Eligió dar de alta a un mozo.");
+            //        break;
+            //    case 5:
+            //        WriteLine("Eligió salir, hasta luego!");
+            //        loop = false;
+            //        ReadKey();
+            //        break;
+            //    default:
+            //        break;
+            //}
+
             Manager manager = new Manager();
 
+            Console.WriteLine(manager.Dishes);
             
             Local local = new Local(DateTime.Now, 1);
 

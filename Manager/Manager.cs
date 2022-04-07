@@ -95,7 +95,6 @@ namespace Manager
         }
 
 
-
         public List<Client> Clients
         {
             get
