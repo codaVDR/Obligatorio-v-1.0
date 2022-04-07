@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using static System.Console;
 using Dominio;
 
 namespace Manager
@@ -13,6 +14,14 @@ namespace Manager
         public Manager()
         {
             PrecargarDatos();
+        }
+
+        public void ListarPlatos()
+        {
+            foreach (var dish in Dishes)
+            {
+                WriteLine(dish);
+            }
         }
 
         public void PrecargarDishes ()
@@ -60,23 +69,18 @@ namespace Manager
 
             return cliente;
         }
-
-
         public Waiter AltaMozo (string name, string last_name, int wnum)
         {
             return null;
         }
-
         public Deliveryman AltaRepartidor (string name, string last_name)
         {
             return null;
         }
-
         public Service AltaServcio ()
         {
             return null;
         }
-
         public Dish AltaPlato(string name, float price)
         {
             bool validado = Dish.ValidarDatos(name, price);
@@ -93,8 +97,6 @@ namespace Manager
 
             return plato;
         }
-
-
         public List<Client> Clients
         {
             get
@@ -107,7 +109,6 @@ namespace Manager
                 clients = value;
             }
         }
-
         public List<Dish> Dishes
         {
             get

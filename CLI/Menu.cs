@@ -38,8 +38,9 @@ namespace CLI
 
             while (loop)
             {
+                PressedKey = ReadKey(true);
                 //ReadKey cuando recibe true oculta la entrada de teclado que pongo. Mientras no presiono Enter se ejecuta el loop.
-                while ((PressedKey = ReadKey(true)).Key != ConsoleKey.Enter)
+                while (PressedKey.Key != ConsoleKey.Enter)
                 {
                     switch (PressedKey.Key)
                     {
@@ -62,37 +63,7 @@ namespace CLI
                     Clear(); //provisorio chequear
                     strDrawMenu = DrawMenu(menuOptionsArray, counter);
                 }
-
-                switch (counter)
-                {
-                    case 0:
-                        WriteLine("Eligió listar todos los platos.");
-                        break;
-                    case 1:
-                        WriteLine("Eligió listar clientes ordenados por apellido.");
-                        break;
-                    case 2:
-                        WriteLine("Eligió listar servicios entregados por un repartidor en un rango de fechas dado.");
-                        break;
-                    case 3:
-                        WriteLine("Eligió modificar el valor del precio mínimo del plato.");
-                        break;
-                    case 4:
-                        WriteLine("Eligió dar de alta a un mozo.");
-                        break;
-                    case 5:
-                        WriteLine("Eligió salir, hasta luego!");
-                        loop = false;
-                        ReadKey();
-                        break;
-                    default:
-                        break;
-
-
-                }
                 return counter;
-
-         
             }
             return counter;
         }

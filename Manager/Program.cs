@@ -11,20 +11,24 @@ namespace Manager
         static void Main(string[] args)
         {
             int option = Menu.Display();
-            WriteLine(option);
+
+            Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
+            Manager manager = new Manager();
+            Local local = new Local(DateTime.Now, 1);
+            local.AddGuest(client1);
+            local.AddDish(manager.Dishes[1]);
+            local.AddDish(manager.Dishes[2]);
             //bool loop = true;
-            
-                switch (option)
+
+            switch (option)
                 {
                     case 0:
-                        WriteLine("Plato 1");
-                        WriteLine("Plato 1");
-                        WriteLine("Plato 1");
-                        WriteLine("Plato 1");
-                        ReadKey();
-
-
-                    break;
+                        Clear();
+                        manager.ListarPlatos();
+                            
+                    
+                    ReadKey();
+                        break;
                     case 1:
                         WriteLine("Eligió listar clientes ordenados por apellido.");
                         break;
@@ -47,43 +51,6 @@ namespace Manager
 
 
                 }
-            
-        
-
-
-
-
-
-
-        Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
-
-            
-            
-
-            Manager manager = new Manager();
-
-            Console.WriteLine(manager.Dishes);
-            
-            Local local = new Local(DateTime.Now, 1);
-
-            local.AddGuest(client1);
-            local.AddDish(manager.Dishes[1]);
-            local.AddDish(manager.Dishes[2]);
-
-            foreach (var dish in local.Dishes)
-            {
-                Console.WriteLine(dish);
-            }
-
-            foreach (var guest in local.Guests)
-            {
-                Console.WriteLine(guest);
-            }
-
-            Console.WriteLine(local.CalculateTotal());
-
-
         }
-
     }
 }
