@@ -22,7 +22,11 @@ namespace Manager
             {
                     case 0:
                         Clear();
+                        WriteLine("  ~  Lista de platos  ~" + Environment.NewLine);
                         manager.ListarPlatos();
+                        
+
+                        WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
                         ConsoleKeyInfo option0 = ReadKey();
                         if (option0.Key == ConsoleKey.Enter)
                         {
@@ -32,7 +36,10 @@ namespace Manager
                     break;
                     case 1:
                     Clear();
+                    WriteLine("  ~  Lista de clientes ordenados por su apellido  ~" + Environment.NewLine);
                     manager.ListarClientes();
+                    WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
+
                     ConsoleKeyInfo option1 = ReadKey();
                     if (option1.Key == ConsoleKey.Enter)
                     {
@@ -47,16 +54,16 @@ namespace Manager
                     case 3:
                         Clear();
                         WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
-                        WriteLine("Ingresa el nuevo valor mínimo para los platos");
-                    string inputMinimum = ReadLine();
+                        WriteLine("Porfavor, ingrese un nuevo valor minimo para los platos: " + Environment.NewLine);
+                        string inputMinimum = ReadLine();
                         float newMinimum;
                         bool success = float.TryParse(inputMinimum, out newMinimum);
                         if (success)
                         {
                             Dish.UpdateMinimum(newMinimum);
-                            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
-                            WriteLine($"El nuevo valor mínimo es: {Dish.minimumPrice} || ");
-                            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
+                            WriteLine(Environment.NewLine + "─────────────────────────────────────────────────────");
+                            WriteLine($"{Environment.NewLine} El nuevo valor mínimo es: {Dish.minimumPrice} \n Presione Enter para volver, cualquier otra tecla para salir. ");
+                            
                         }  
                         ConsoleKeyInfo option3 = ReadKey();
                         if (option3.Key == ConsoleKey.Enter)
@@ -66,11 +73,33 @@ namespace Manager
                             Main();
                         }
                         break;
-                case 4:
-                        WriteLine("Eligió dar de alta a un mozo.");
-                        break;
+                    case 4:
+                    Clear();
+                    WriteLine("  ~  Dar alta a un mozo  ~" + Environment.NewLine);
+                    //manager.AltaMozo();
+                    WriteLine("Porfavor, ingrese el nombre del mozo: ");
+                    string waiterName = ReadLine();
+                    WriteLine("Porfavor, ingrese el apellido del mozo: ");
+                    string waiterLastName = ReadLine();
+                    WriteLine("Porfavor, ingrese el numero de mozo: ");
+                    string waiterNumberInput = ReadLine();
+                    int waiterNumber;
+                    Int32.TryParse(waiterNumberInput, out waiterNumber);
+
+
+                    //manager.AltaMozo(waiterName, waiterLastName, waiterNumber);
+
+
+                    WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
+                    ConsoleKeyInfo option4 = ReadKey();
+                    if (option4.Key == ConsoleKey.Enter)
+                    {
+                        Clear();
+                        Main();
+                    }
+                    break;
                     case 5:
-                        WriteLine("Eligió salir, hasta luego!");
+                        ForegroundColor = ConsoleColor.Red; WriteLine(Environment.NewLine + "Eligió salir, hasta luego!");
                         //loop = false;
                         ReadKey();
                         break;

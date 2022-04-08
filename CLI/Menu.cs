@@ -26,10 +26,13 @@ namespace CLI
             ConsoleKeyInfo PressedKey;
 
             //Oculto cursor
+           
+           
             CursorVisible = false;
-            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
-            WriteLine("Bienvenido usuario, seleccione una opción, por favor." + Environment.NewLine);
-            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
+            ForegroundColor = ConsoleColor.Green;
+            WriteLine("┌────────────────────────────────────────────────────────┐");
+            WriteLine("│  Bienvenido usuario, seleccione una opción, por favor  │");
+            WriteLine("└────────────────────────────────────────────────────────┘" + Environment.NewLine);
             //Obteniendo posiciones del cursor
             x = CursorLeft;
             y = CursorTop;
@@ -69,22 +72,25 @@ namespace CLI
             {
                 if (highlighted == option)
                 {
-                    ForegroundColor = ConsoleColor.Green;
-                    BackgroundColor = ConsoleColor.DarkRed;
+                    ForegroundColor = ConsoleColor.Cyan;
+                    BackgroundColor = ConsoleColor.DarkMagenta;
                     WriteLine(element);
                     ForegroundColor = ConsoleColor.White;
                     BackgroundColor = ConsoleColor.Black;
                     selectedOption = element;
                 }
                 else
-                {
-                    Write(new string(' ', WindowWidth));
+                {                  
                     CursorLeft = 0;
-                    WriteLine(element);
+                    ForegroundColor = ConsoleColor.White; WriteLine(element);
                 }
 
                 highlighted++;
             });
+            ForegroundColor = ConsoleColor.Green;
+            WriteLine(Environment.NewLine + "──────────────────────────────────────────────────────────");
         }
+
+        
     }
 }

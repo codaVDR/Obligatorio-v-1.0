@@ -20,16 +20,18 @@ namespace Manager
         {
             foreach (var dish in Dishes)
             {
-                WriteLine(dish);
+                WriteLine("  »  " + dish);
             }
         }
         public void ListarClientes()
         {
             Clients.Sort(Client.CompareByLastName);
+            
             foreach (var client in Clients)
             {
-                WriteLine(client);
+                WriteLine("  »  " + client);
             }
+
         }
 
         public void PrecargarDishes ()
@@ -82,10 +84,10 @@ namespace Manager
 
             return cliente;
         }
-        public Waiter AltaMozo (string name, string last_name, int wnum)
-        {
-            return null;
-        }
+        //public Waiter AltaMozo (string name, string last_name, int wnum)
+        //{
+            
+        //}
         public Deliveryman AltaRepartidor (string name, string last_name)
         {
             return null;
