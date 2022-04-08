@@ -27,7 +27,9 @@ namespace CLI
 
             //Oculto cursor
             CursorVisible = false;
+            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
             WriteLine("Bienvenido usuario, seleccione una opción, por favor." + Environment.NewLine);
+            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
             //Obteniendo posiciones del cursor
             x = CursorLeft;
             y = CursorTop;
@@ -54,7 +56,6 @@ namespace CLI
                 }
                 CursorLeft = x;
                 CursorTop = y;
-                Clear(); //provisorio chequear
                 DrawMenu(menuOptionsArray, Selected);
             }
         }

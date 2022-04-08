@@ -45,9 +45,28 @@ namespace Manager
                         WriteLine("Eligió listar servicios entregados por un repartidor en un rango de fechas dado.");
                         break;
                     case 3:
-                        WriteLine("Eligió modificar el valor del precio mínimo del plato.");
+                        Clear();
+                        WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
+                        WriteLine("Ingresa el nuevo valor mínimo para los platos");
+                    string inputMinimum = ReadLine();
+                        float newMinimum;
+                        bool success = float.TryParse(inputMinimum, out newMinimum);
+                        if (success)
+                        {
+                            Dish.UpdateMinimum(newMinimum);
+                            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
+                            WriteLine($"El nuevo valor mínimo es: {Dish.minimumPrice} || ");
+                            WriteLine("─────────────────────────────────────────────────────" + Environment.NewLine);
+                        }  
+                        ConsoleKeyInfo option3 = ReadKey();
+                        if (option3.Key == ConsoleKey.Enter)
+                        {
+                            Clear();
+
+                            Main();
+                        }
                         break;
-                    case 4:
+                case 4:
                         WriteLine("Eligió dar de alta a un mozo.");
                         break;
                     case 5:

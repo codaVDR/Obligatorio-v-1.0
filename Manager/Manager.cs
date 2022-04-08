@@ -61,6 +61,11 @@ namespace Manager
             PrecargarClients();
         }
 
+        public void PrecargarDeliveries ()
+        {
+
+        }
+
         public Client AltaCliente(string name, string last_name, string email, string password)
         {
             bool validado = Client.IsValid(name, last_name, email, password);

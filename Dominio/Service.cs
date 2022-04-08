@@ -30,6 +30,8 @@ namespace Dominio
         private string address;
         private float distance;
 
+        public DateTime Delivered { get; set; }
+
         public Delivery (DateTime date, string address, float distance) : base (date)
         {
             
@@ -85,6 +87,11 @@ namespace Dominio
                 }
             }
             return total + extra;
+        }
+
+        public void Deliver ()
+        {
+            Delivered = DateTime.Now;
         }
     } 
 
