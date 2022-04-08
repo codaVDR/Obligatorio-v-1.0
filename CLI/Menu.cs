@@ -19,58 +19,49 @@ namespace CLI
         private static int x;
         private static int y;
 
+        public static int Selected { get; set; } = 0;
 
-        public static int Display()
+        public static void Display()
         {
             bool loop = true;
-            int counter = 0;
+
             ConsoleKeyInfo PressedKey;
 
             //Oculto cursor
             CursorVisible = false;
-            WriteLine("Bienvenido usuario, seleccione una opcion porfavor." + Environment.NewLine);
-
+            WriteLine("Bienvenido usuario, seleccione una opción, por favor." + Environment.NewLine);
             //Obteniendo posiciones del cursor
             x = CursorLeft;
             y = CursorTop;
 
-            string strDrawMenu = DrawMenu(menuOptionsArray, counter);
+            DrawMenu(menuOptionsArray, Selected);
 
-            while (loop)
-            {
-                PressedKey = ReadKey(true);
                 //ReadKey cuando recibe true oculta la entrada de teclado que pongo. Mientras no presiono Enter se ejecuta el loop.
-                while (PressedKey.Key != ConsoleKey.Enter)
+            while ((PressedKey = ReadKey(true)).Key != ConsoleKey.Enter)
+            {
+                switch (PressedKey.Key)
                 {
-                    switch (PressedKey.Key)
-                    {
-                        case ConsoleKey.DownArrow:
-                            //Validacion para que el cursor no se vaya hacia arriba, toma la cantidad de opciones del array. Pasa a la siguiente iteracion del bucle
-                            if (counter == menuOptionsArray.Length - 1) continue;
-                            counter++;
+                    case ConsoleKey.DownArrow:
+                        //Validacion para que el cursor no se vaya hacia arriba, toma la cantidad de opciones del array. Pasa a la siguiente iteracion del bucle
+                        if (Selected == menuOptionsArray.Length - 1) continue;
+                            Selected++;
                             break;
-                        case ConsoleKey.UpArrow:
-                            //Validacion para que el cursor no se vaya hacia arriba. Pasa a la siguiente iteracion del bucle
-                            if (counter == 0) continue;
-                            counter--;
-                            break;
-                        default:
-                            break;
-                    }
-
-                    CursorLeft = x;
-                    CursorTop = y;
-                    Clear(); //provisorio chequear
-                    strDrawMenu = DrawMenu(menuOptionsArray, counter);
+                    case ConsoleKey.UpArrow:
+                        //Validacion para que el cursor no se vaya hacia arriba. Pasa a la siguiente iteracion del bucle
+                        if (Selected == 0) continue;
+                        Selected--;
+                        break;
+                    default:
+                        break;
                 }
-                return counter;
+                CursorLeft = x;
+                CursorTop = y;
+                Clear(); //provisorio chequear
+                DrawMenu(menuOptionsArray, Selected);
             }
-            return counter;
         }
-
-
         //Encuentro la opcion seleccionada, la pinto.
-        private static string DrawMenu(string[] items, int option)
+        private static void DrawMenu(string[] items, int option)
         {
             string selectedOption = string.Empty;
             int highlighted = 0;
@@ -95,7 +86,6 @@ namespace CLI
 
                 highlighted++;
             });
-            return selectedOption;
         }
     }
 }

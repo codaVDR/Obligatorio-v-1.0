@@ -8,9 +8,9 @@ namespace Manager
     class Program
     {
 
-        static void Main(string[] args)
+        static void Main()
         {
-            int option = Menu.Display();
+            Menu.Display();
 
             Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
             Manager manager = new Manager();
@@ -20,18 +20,30 @@ namespace Manager
             local.AddDish(manager.Dishes[2]);
             //bool loop = true;
 
-            switch (option)
-                {
+            WriteLine(Menu.Selected);
+
+            switch (Menu.Selected)
+            {
                     case 0:
                         Clear();
                         manager.ListarPlatos();
-                            
-                    
-                    ReadKey();
-                        break;
+                        ConsoleKeyInfo option0 = ReadKey();
+                        if (option0.Key == ConsoleKey.Enter)
+                        {
+                            Clear();
+                            Main();
+                        }
+                    break;
                     case 1:
-                        WriteLine("Eligió listar clientes ordenados por apellido.");
-                        break;
+                    Clear();
+                    manager.ListarClientes();
+                    ConsoleKeyInfo option1 = ReadKey();
+                    if (option1.Key == ConsoleKey.Enter)
+                    {
+                        Clear();
+                        Main();
+                    }
+                    break;
                     case 2:
                         WriteLine("Eligió listar servicios entregados por un repartidor en un rango de fechas dado.");
                         break;
@@ -50,7 +62,7 @@ namespace Manager
                         break;
 
 
-                }
+            }
         }
     }
 }

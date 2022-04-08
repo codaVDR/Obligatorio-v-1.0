@@ -23,6 +23,13 @@ namespace Manager
                 WriteLine(dish);
             }
         }
+        public void ListarClientes()
+        {
+            foreach (var client in Clients)
+            {
+                WriteLine(client);
+            }
+        }
 
         public void PrecargarDishes ()
         {
