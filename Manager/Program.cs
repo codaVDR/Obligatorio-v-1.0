@@ -18,10 +18,6 @@ namespace Manager
             local.AddGuest(client1);
             local.AddDish(manager.Dishes[1]);
             local.AddDish(manager.Dishes[2]);
-            //bool loop = true;
-
-            WriteLine(Menu.Selected);
-
             switch (Menu.Selected)
             {
                     case 0:
@@ -41,6 +37,7 @@ namespace Manager
                     if (option1.Key == ConsoleKey.Enter)
                     {
                         Clear();
+
                         Main();
                     }
                     break;

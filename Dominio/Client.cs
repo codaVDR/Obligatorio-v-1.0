@@ -18,6 +18,11 @@ namespace Dominio
             this.Password = password;
         }
 
+        public static int CompareByLastName (Client client_one, Client client_two)
+        {
+            return String.Compare(client_one.Last_name, client_two.Last_name);
+        }
+
         public static bool IsValid (string name, string last_name, string email, string password)
         {
             bool isValidName = !string.IsNullOrEmpty (name) && SinNumeros (name);

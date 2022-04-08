@@ -25,6 +25,7 @@ namespace Manager
         }
         public void ListarClientes()
         {
+            Clients.Sort(Client.CompareByLastName);
             foreach (var client in Clients)
             {
                 WriteLine(client);

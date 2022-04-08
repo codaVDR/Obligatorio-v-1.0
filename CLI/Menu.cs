@@ -23,8 +23,6 @@ namespace CLI
 
         public static void Display()
         {
-            bool loop = true;
-
             ConsoleKeyInfo PressedKey;
 
             //Oculto cursor
