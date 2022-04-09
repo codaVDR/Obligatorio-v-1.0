@@ -79,7 +79,7 @@ namespace Testing
             string test_email = "zabala@alfonso.com";
             string test_password = "Alfon1234";
 
-            bool result = Client.isValid(test_name, test_last_name, test_email, test_password);
+            bool result = Client.IsValid(test_name, test_last_name, test_email, test_password);
 
             Assert.IsTrue(result);
         }
@@ -91,7 +91,7 @@ namespace Testing
             string test_email = "zabala@alfonso.com";
             string test_password = "alfon1234";
 
-            bool result = Client.isValid(test_name, test_last_name, test_email, test_password);
+            bool result = Client.IsValid(test_name, test_last_name, test_email, test_password);
 
             Assert.IsFalse(result);
         }

@@ -10,6 +10,8 @@ namespace Manager
 
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
+        private List<Waiter> waiters = new List<Waiter>();
+
 
         public Manager()
         {
@@ -20,18 +22,23 @@ namespace Manager
         {
             foreach (var dish in Dishes)
             {
-                WriteLine("  »  " + dish);
+                WriteLine(dish);
             }
         }
         public void ListarClientes()
         {
             Clients.Sort(Client.CompareByLastName);
-            
             foreach (var client in Clients)
             {
-                WriteLine("  »  " + client);
+                WriteLine(client);
             }
-
+        }
+        public void ListarWaiters()
+        {
+            foreach (var waiter in Waiters)
+            {
+                WriteLine(waiter);
+            }
         }
 
         public void PrecargarDishes ()
@@ -57,15 +64,20 @@ namespace Manager
             Client cliente5 = AltaCliente("Juan", "Rodríguez", "juanr@outlook.com", "juanR13");
         }
 
+        public void PrecargarWaiters()
+        {
+            Waiter waiter1 = AltaMozo("Hernan", "Pereira");
+            Waiter waiter2 = AltaMozo("Florencia", "Sánchez");
+            Waiter waiter3 = AltaMozo("Facundo", "Ricaldoni");
+            Waiter waiter4 = AltaMozo("Romina", "Hernández");
+            Waiter waiter5 = AltaMozo("Sofía", "Siena");
+        }
+
         public void PrecargarDatos()
         {
             PrecargarDishes();
             PrecargarClients();
-        }
-
-        public void PrecargarDeliveries ()
-        {
-
+            PrecargarWaiters();
         }
 
         public Client AltaCliente(string name, string last_name, string email, string password)
@@ -84,10 +96,23 @@ namespace Manager
 
             return cliente;
         }
-        //public Waiter AltaMozo (string name, string last_name, int wnum)
-        //{
-            
-        //}
+        public Waiter AltaMozo (string name, string last_name)
+        {
+            bool validado = Waiter.ValidWaiter(name, last_name);
+
+            if (validado == false)
+                return null;
+
+            Waiter waiter = new Waiter(name, last_name);
+
+            if (Waiters.Contains(waiter))
+                waiter = null;
+            else
+                waiters.Add(waiter);
+
+            return waiter;
+        }
+
         public Deliveryman AltaRepartidor (string name, string last_name)
         {
             return null;
@@ -134,6 +159,18 @@ namespace Manager
             set
             {
                 dishes = value;
+            }
+        }
+        public List<Waiter> Waiters
+        {
+            get
+            {
+                return waiters;
+            }
+
+            set
+            {
+                waiters = value;
             }
         }
     }

@@ -25,7 +25,7 @@ namespace Dominio
 
         public static bool IsValid (string name, string last_name, string email, string password)
         {
-            bool isValidName = !string.IsNullOrEmpty (name) && SinNumeros (name);
+            bool isValidName = !string.IsNullOrEmpty(name) && SinNumeros(name);
             bool isValidLastName = !string.IsNullOrEmpty(last_name) && SinNumeros(last_name);
             bool isValidEmail = EsValido(email);
             bool isValidPassword = EsSegura(password);
@@ -41,7 +41,7 @@ namespace Dominio
 
         public override bool Equals(object obj)
         {
-             return obj is Client client && Name == client.Name && Last_name == client.Email;
+             return obj is Client client && Name == client.Name && Last_name == client.Last_name && Email == client.Email;
         }
         public override int GetHashCode()
         {

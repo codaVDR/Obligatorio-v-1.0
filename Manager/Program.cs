@@ -81,13 +81,10 @@ namespace Manager
                     string waiterName = ReadLine();
                     WriteLine("Porfavor, ingrese el apellido del mozo: ");
                     string waiterLastName = ReadLine();
-                    WriteLine("Porfavor, ingrese el numero de mozo: ");
-                    string waiterNumberInput = ReadLine();
-                    int waiterNumber;
-                    Int32.TryParse(waiterNumberInput, out waiterNumber);
 
+                    manager.AltaMozo(waiterName, waiterLastName);
 
-                    //manager.AltaMozo(waiterName, waiterLastName, waiterNumber);
+                    manager.ListarWaiters();
 
 
                     WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
