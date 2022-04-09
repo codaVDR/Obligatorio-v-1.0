@@ -86,7 +86,7 @@ namespace Manager
         }
         //public Waiter AltaMozo (string name, string last_name, int wnum)
         //{
-            
+            //falta implementar dijo nachito
         //}
         public Deliveryman AltaRepartidor (string name, string last_name)
         {
