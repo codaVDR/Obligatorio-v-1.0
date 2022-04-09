@@ -83,7 +83,8 @@ namespace Manager
                     string waiterLastName = ReadLine();
 
                     manager.AltaMozo(waiterName, waiterLastName);
-
+                    WriteLine(Environment.NewLine + "─────────────────────────────────────────────────────");
+                    WriteLine(Environment.NewLine + "~ Lista de mozos: ~" + Environment.NewLine);
                     manager.ListarWaiters();
 
 
