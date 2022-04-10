@@ -84,8 +84,13 @@ namespace Manager
 
                     manager.AltaMozo(waiterName, waiterLastName);
 
+<<<<<<< HEAD
                     manager.ListarWaiters();
 
+=======
+                    //manager.AltaMozo(waiterName, waiterLastName, waiterNumber);
+                    //Falta mejorar, no pude con la funcion en manager. Intente varias cosas pero no se porque no esta funcionando je.
+>>>>>>> titan
 
                     WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
                     ConsoleKeyInfo option4 = ReadKey();
