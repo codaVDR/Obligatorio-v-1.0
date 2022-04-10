@@ -24,7 +24,6 @@ namespace Manager
                         Clear();
                         WriteLine("  ~  Lista de platos  ~" + Environment.NewLine);
                         manager.ListarPlatos();
-                        
 
                         WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
                         ConsoleKeyInfo option0 = ReadKey();
@@ -76,7 +75,6 @@ namespace Manager
                     case 4:
                     Clear();
                     WriteLine("  ~  Dar alta a un mozo  ~" + Environment.NewLine);
-                    //manager.AltaMozo();
                     WriteLine("Porfavor, ingrese el nombre del mozo: ");
                     string waiterName = ReadLine();
                     WriteLine("Porfavor, ingrese el apellido del mozo: ");

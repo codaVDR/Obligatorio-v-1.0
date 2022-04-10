@@ -64,12 +64,12 @@ namespace Dominio
 
         public override bool Equals(object obj)
         {
-            return obj is Dish plato && name == plato.name && price == plato.price && ID == plato.ID;
+            return obj is Dish plato && Name == plato.Name && Price == plato.Price && ID == plato.ID;
         }
 
         public override string ToString()
         {
-            return $"{this.name} || {this.price}";
+            return $"{this.Name} || {this.Price}";
         }
 
         public override int GetHashCode()

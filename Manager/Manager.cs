@@ -11,6 +11,8 @@ namespace Manager
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
         private List<Waiter> waiters = new List<Waiter>();
+        private List<Deliveryman> deliverymen = new List<Deliveryman>();
+
 
 
         public Manager()
@@ -38,6 +40,14 @@ namespace Manager
             foreach (var waiter in Waiters)
             {
                 WriteLine(waiter);
+            }
+        }
+
+        public void ListarDeliveryMen()
+        {
+            foreach (var deliveryman in Deliverymen)
+            {
+                WriteLine(deliveryman);
             }
         }
 
@@ -73,18 +83,28 @@ namespace Manager
             Waiter waiter5 = AltaMozo("Sofía", "Siena");
         }
 
+        public void PrecargarDeliveryMen()
+        {
+            Deliveryman deliveryman1 = AltaRepartidor("Roberto", "Fernandez", Vehicle.Bicicleta);
+            Deliveryman deliveryman2 = AltaRepartidor("Mirtha", "Hernandez", Vehicle.Moto);
+            Deliveryman deliveryman3 = AltaRepartidor("Fernando", "Perez", Vehicle.Moto);
+            Deliveryman deliveryman4 = AltaRepartidor("Josefina", "Salomé", Vehicle.Bicicleta);
+            Deliveryman deliveryman5 = AltaRepartidor("Felipe", "Martínez", Vehicle.Pie);
+        }
+
         public void PrecargarDatos()
         {
             PrecargarDishes();
             PrecargarClients();
             PrecargarWaiters();
+            PrecargarDeliveryMen();
         }
 
         public Client AltaCliente(string name, string last_name, string email, string password)
         {
             bool validado = Client.IsValid(name, last_name, email, password);
 
-            if (validado == false)
+            if (!validado)
                 return null;
 
             Client cliente = new Client(name, last_name, email, password);
@@ -100,7 +120,7 @@ namespace Manager
         {
             bool validado = Waiter.ValidWaiter(name, last_name);
 
-            if (validado == false)
+            if (!validado)
                 return null;
 
             Waiter waiter = new Waiter(name, last_name);
@@ -113,19 +133,33 @@ namespace Manager
             return waiter;
         }
 
-        public Deliveryman AltaRepartidor (string name, string last_name)
+        public Deliveryman AltaRepartidor (string name, string last_name, Vehicle vehicle)
         {
-            return null;
+            bool validado = Deliveryman.ValidoDatos(name,last_name);
+
+            if (!validado)
+                return null;
+
+            Deliveryman deliveryman = new Deliveryman(name, last_name, vehicle);
+
+            if (Deliverymen.Contains(deliveryman))
+                deliveryman = null;
+            else
+                deliverymen.Add(deliveryman);
+
+            return deliveryman;
         }
+
         public Service AltaServcio ()
         {
             return null;
         }
+
         public Dish AltaPlato(string name, float price)
         {
             bool validado = Dish.ValidarDatos(name, price);
 
-            if (validado == false)
+            if (!validado)
                 return null;
 
             Dish plato = new Dish(name, price);
@@ -171,6 +205,19 @@ namespace Manager
             set
             {
                 waiters = value;
+            }
+        }
+
+        public List<Deliveryman> Deliverymen
+        {
+            get
+            {
+                return deliverymen;
+            }
+
+            set
+            {
+                deliverymen = value;
             }
         }
     }
