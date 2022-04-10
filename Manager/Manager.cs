@@ -96,7 +96,6 @@ namespace Manager
 
             return cliente;
         }
-<<<<<<< HEAD
         public Waiter AltaMozo (string name, string last_name)
         {
             bool validado = Waiter.ValidWaiter(name, last_name);
@@ -113,13 +112,6 @@ namespace Manager
 
             return waiter;
         }
-
-=======
-        //public Waiter AltaMozo (string name, string last_name, int wnum)
-        //{
-            //falta implementar dijo nachito
-        //}
->>>>>>> titan
         public Deliveryman AltaRepartidor (string name, string last_name)
         {
             return null;

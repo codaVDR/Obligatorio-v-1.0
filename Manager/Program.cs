@@ -11,7 +11,6 @@ namespace Manager
         static void Main()
         {
             Menu.Display();
-
             Client client1 = new Client("Alfonso", "Piedrabuena", "correofalso@gmail.com", "12345");
             Manager manager = new Manager();
             Local local = new Local(DateTime.Now, 1);
@@ -24,8 +23,6 @@ namespace Manager
                         Clear();
                         WriteLine("  ~  Lista de platos  ~" + Environment.NewLine);
                         manager.ListarPlatos();
-                        
-
                         WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
                         ConsoleKeyInfo option0 = ReadKey();
                         if (option0.Key == ConsoleKey.Enter)
@@ -39,7 +36,6 @@ namespace Manager
                     WriteLine("  ~  Lista de clientes ordenados por su apellido  ~" + Environment.NewLine);
                     manager.ListarClientes();
                     WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
-
                     ConsoleKeyInfo option1 = ReadKey();
                     if (option1.Key == ConsoleKey.Enter)
                     {
@@ -83,15 +79,8 @@ namespace Manager
                     string waiterLastName = ReadLine();
 
                     manager.AltaMozo(waiterName, waiterLastName);
-
-<<<<<<< HEAD
-                    manager.ListarWaiters();
-
-=======
-                    //manager.AltaMozo(waiterName, waiterLastName, waiterNumber);
+                    manager.ListarWaiters ();
                     //Falta mejorar, no pude con la funcion en manager. Intente varias cosas pero no se porque no esta funcionando je.
->>>>>>> titan
-
                     WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
                     ConsoleKeyInfo option4 = ReadKey();
                     if (option4.Key == ConsoleKey.Enter)
@@ -101,8 +90,8 @@ namespace Manager
                     }
                     break;
                     case 5:
-                        ForegroundColor = ConsoleColor.Red; WriteLine(Environment.NewLine + "Eligió salir, hasta luego!");
-                        //loop = false;
+                        ForegroundColor = ConsoleColor.Red; 
+                        WriteLine(Environment.NewLine + "Eligió salir, hasta luego!");
                         ReadKey();
                         break;
                     default:
