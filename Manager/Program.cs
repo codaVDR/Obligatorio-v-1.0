@@ -52,7 +52,37 @@ namespace Manager
                     }
                     break;
                     case 2:
-                        WriteLine("Eligió listar servicios entregados por un repartidor en un rango de fechas dado.");
+                        Clear();
+                        WriteLine("Porfavor ingresar año de inicio");
+                        string añoInicio = ReadLine();
+                        WriteLine("Porfavor ingresar mes de inicio");
+                        string mesInicio = ReadLine();
+                        WriteLine("Porfavor ingresar dia de inicio");
+                        string diaInicio = ReadLine();
+                        WriteLine("Porfavor ingresar año final");
+                        string añoFinal = ReadLine();
+                        WriteLine("Porfavor ingresar mes final");
+                        string mesFinal = ReadLine();
+                        WriteLine("Porfavor ingresar dia final");
+                        string diaFinal = ReadLine();
+
+                        int añoInicioParse = Int32.Parse(añoInicio);
+                        int mesInicioParse = Int32.Parse(mesInicio);
+                        int diaInicioParse = Int32.Parse(diaInicio);
+                        int añoFinalParse = Int32.Parse(añoFinal);
+                        int mesFinalParse = Int32.Parse(mesFinal);
+                        int diaFinalParse = Int32.Parse(diaFinal);
+
+                        DateTime fechaInicio = new DateTime(añoInicioParse, mesInicioParse, diaInicioParse);
+                        DateTime fechaFinal = new DateTime(añoFinalParse, mesFinalParse, diaFinalParse);
+
+                        manager.ListarDeliveries(fechaInicio, fechaFinal);
+                        ReadKey();
+
+
+                        Clear();
+                        Main();
+
                         break;
                     case 3:
                         Clear();
@@ -86,16 +116,16 @@ namespace Manager
                     string waiterLastName = ReadLine();
 
                     manager.AltaMozo(waiterName, waiterLastName);
-<<<<<<< HEAD
+
                     WriteLine(Environment.NewLine + "─────────────────────────────────────────────────────");
                     WriteLine(Environment.NewLine + "~ Lista de mozos: ~" + Environment.NewLine);
                     manager.ListarWaiters();
 
 
-=======
-                    manager.ListarWaiters ();
+
+                    
                     //Falta mejorar, no pude con la funcion en manager. Intente varias cosas pero no se porque no esta funcionando je.
->>>>>>> 1e6fc06cfc2dbc971a3881e38ee9204028bbd475
+
                     WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
                     ConsoleKeyInfo option4 = ReadKey();
                     if (option4.Key == ConsoleKey.Enter)

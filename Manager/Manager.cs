@@ -42,9 +42,35 @@ namespace Manager
             }
         }
 
-        public List<Delivery> ListarDeliveries(DateTime from, DateTime to)
+        public void ListarDeliveries(DateTime from, DateTime to)
         {
-            return null;
+
+            List<Delivery> listaDeliveries = new List <Delivery>();
+            foreach(var service in services)
+            {
+
+                if (service is Delivery)
+                {
+                    Delivery delivery = (Delivery)service;
+                    if (delivery.Date > from && delivery.Delivered < to) 
+                    {
+                        listaDeliveries.Add(delivery);
+                        WriteLine(delivery);
+
+
+                    }
+                    
+
+                }
+
+            }
+            if (listaDeliveries.Count == 0)
+            {
+                WriteLine("No hay deliveries hechos en ese rango de fechas");
+                WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
+            }
+
+            
         }
         public void PrecargarDishes()
         {

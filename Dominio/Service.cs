@@ -6,8 +6,8 @@ namespace Dominio
     public class Service
     {
         // Clase base de los dos servicios: local y delivery
-        private DateTime date;
-        private List<Dish> dishes;
+        protected DateTime date;
+        protected List<Dish> dishes;
 
         public DateTime Date { get => date; set => date = value; }
         public List<Dish> Dishes { get => dishes; set => dishes = value; }
@@ -91,6 +91,10 @@ namespace Dominio
                 }
             }
             return total + extra;
+        }
+        public override string ToString()
+        {
+            return $"{date} || {address} || {Delivered} || {distance}";
         }
     } 
 
