@@ -15,8 +15,15 @@ namespace Manager
             Manager manager = new Manager();
             Local local = new Local(DateTime.Now, 1);
             local.AddGuest(client1);
-            local.AddDish(manager.Dishes[1]);
-            local.AddDish(manager.Dishes[2]);
+
+            foreach (var service in manager.Services)
+            {
+                Delivery delivery = (Delivery)service;
+                delivery.Deliver();
+            }
+
+            // local.AddDish(manager.Dishes[1]);
+            // local.AddDish(manager.Dishes[2]);
             switch (Menu.Selected)
             {
                     case 0:

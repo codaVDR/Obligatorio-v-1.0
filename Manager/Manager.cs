@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using static System.Console;
 using Dominio;
+using System;
 
 namespace Manager
 {
@@ -11,7 +12,7 @@ namespace Manager
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
         private List<Waiter> waiters = new List<Waiter>();
-
+        private List<Service> services = new List<Service>();
 
         public Manager()
         {
@@ -22,7 +23,7 @@ namespace Manager
         {
             foreach (var dish in Dishes)
             {
-                WriteLine(dish);
+                WriteLine("  »  " + dish);
             }
         }
         public void ListarClientes()
@@ -30,7 +31,7 @@ namespace Manager
             Clients.Sort(Client.CompareByLastName);
             foreach (var client in Clients)
             {
-                WriteLine(client);
+                WriteLine("  »  " + client);
             }
         }
         public void ListarWaiters()
@@ -41,7 +42,11 @@ namespace Manager
             }
         }
 
-        public void PrecargarDishes ()
+        public List<Delivery> ListarDeliveries(DateTime from, DateTime to)
+        {
+            return null;
+        }
+        public void PrecargarDishes()
         {
             Dish plato1 = AltaPlato("Sushi", 490);
             Dish plato2 = AltaPlato("Ñoquis", 600);
@@ -73,11 +78,21 @@ namespace Manager
             Waiter waiter5 = AltaMozo("Sofía", "Siena");
         }
 
+        public void PrecargarServices()
+        {
+            Delivery delivery1 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
+            Delivery delivery2 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
+            Delivery delivery3 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
+            Delivery delivery4 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
+            Delivery delivery5 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
+        }
+
         public void PrecargarDatos()
         {
             PrecargarDishes();
             PrecargarClients();
             PrecargarWaiters();
+            PrecargarServices();
         }
 
         public Client AltaCliente(string name, string last_name, string email, string password)
@@ -96,7 +111,7 @@ namespace Manager
 
             return cliente;
         }
-        public Waiter AltaMozo (string name, string last_name)
+        public Waiter AltaMozo(string name, string last_name)
         {
             bool validado = Waiter.ValidWaiter(name, last_name);
 
@@ -112,13 +127,15 @@ namespace Manager
 
             return waiter;
         }
-        public Deliveryman AltaRepartidor (string name, string last_name)
+        public Deliveryman AltaRepartidor(string name, string last_name)
         {
             return null;
         }
-        public Service AltaServcio ()
+        public Delivery AltaDelivery(DateTime date, string address, float distance)
         {
-            return null;
+            Delivery delivery = new Delivery(date, address, distance);
+            services.Add(delivery);
+            return delivery;
         }
         public Dish AltaPlato(string name, float price)
         {
@@ -136,6 +153,12 @@ namespace Manager
 
             return plato;
         }
+
+        public List<Delivery> GetDeliveries()
+        {
+            return null;
+        }
+
         public List<Client> Clients
         {
             get
@@ -170,6 +193,18 @@ namespace Manager
             set
             {
                 waiters = value;
+            }
+        }
+        public List<Service> Services
+        {
+            get
+            {
+                return services;
+            }
+
+            set
+            {
+                services = value;
             }
         }
     }

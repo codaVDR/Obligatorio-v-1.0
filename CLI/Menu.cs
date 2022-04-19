@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using static System.Console;
 
 namespace CLI
@@ -89,8 +90,6 @@ namespace CLI
             });
             ForegroundColor = ConsoleColor.Green;
             WriteLine(Environment.NewLine + "──────────────────────────────────────────────────────────");
-        }
-
-        
+        }        
     }
 }
