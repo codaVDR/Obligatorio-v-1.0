@@ -55,15 +55,15 @@ namespace Manager
                         Clear();
                         WriteLine("Porfavor ingresar año de inicio");
                         string añoInicio = ReadLine();
-                        WriteLine("Porfavor ingresar mes de inicio");
+                        WriteLine("\nPorfavor ingresar mes de inicio");
                         string mesInicio = ReadLine();
-                        WriteLine("Porfavor ingresar dia de inicio");
+                        WriteLine("\nPorfavor ingresar dia de inicio");
                         string diaInicio = ReadLine();
-                        WriteLine("Porfavor ingresar año final");
+                        WriteLine("\nPorfavor ingresar año final");
                         string añoFinal = ReadLine();
-                        WriteLine("Porfavor ingresar mes final");
+                        WriteLine("\nPorfavor ingresar mes final");
                         string mesFinal = ReadLine();
-                        WriteLine("Porfavor ingresar dia final");
+                        WriteLine("\nPorfavor ingresar dia final");
                         string diaFinal = ReadLine();
 
                         int añoInicioParse = Int32.Parse(añoInicio);

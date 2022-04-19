@@ -55,7 +55,8 @@ namespace Manager
                     if (delivery.Date > from && delivery.Delivered < to) 
                     {
                         listaDeliveries.Add(delivery);
-                        WriteLine(delivery);
+                        WriteLine("  »  " + delivery);
+                        
 
 
                     }
@@ -64,9 +65,11 @@ namespace Manager
                 }
 
             }
+            WriteLine("\n\nPresione Enter para volver, cualquier otra tecla para salir.");
+            WriteLine("\n───────────────────────────────────────────────────────────────");
             if (listaDeliveries.Count == 0)
             {
-                WriteLine("No hay deliveries hechos en ese rango de fechas");
+                WriteLine("\n\nNo hay deliveries hechos en ese rango de fechas");
                 WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
             }
 
