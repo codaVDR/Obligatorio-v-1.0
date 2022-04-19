@@ -34,7 +34,6 @@ namespace Dominio
 
         public Delivery (DateTime date, string address, float distance) : base (date)
         {
-            
             this.address = address;
             this.distance = distance;
         }
@@ -63,6 +62,11 @@ namespace Dominio
             }
         }
 
+        public void Deliver ()
+        {
+            Delivered = new DateTime(2022, 7, 1, 7, 0, 0);
+        }
+
         public float CalculateTotal ()
         {
              /*
@@ -87,11 +91,6 @@ namespace Dominio
                 }
             }
             return total + extra;
-        }
-
-        public void Deliver ()
-        {
-            Delivered = DateTime.Now;
         }
     } 
 
