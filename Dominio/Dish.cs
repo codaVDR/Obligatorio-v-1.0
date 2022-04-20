@@ -4,11 +4,9 @@ namespace Dominio
 {
     public class Dish
     {
-        //Miembros de la clase
         static public float minimumPrice = 100;
         static public int n = 0;
 
-        //Miembros de la instancia
         private int iD = 0;
         private string name;
         private float price;     
@@ -48,9 +46,6 @@ namespace Dominio
 
             n++;
         }
-
-        //Métodos de clase
-
         public static void UpdateMinimum (float minimo)
         {
             minimumPrice = minimo;

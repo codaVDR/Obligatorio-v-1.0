@@ -10,6 +10,10 @@ namespace Dominio
             Vehicle = vehicle;
         }
         public Vehicle Vehicle { get => vehicle; set => vehicle = value; }
+        public override string ToString()
+        {
+            return $"{Last_name} || {Name} || {Vehicle}";
+        }
     }
 
     public enum Vehicle

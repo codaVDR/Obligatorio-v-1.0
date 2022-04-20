@@ -18,12 +18,10 @@ namespace Manager
 
             foreach (var service in manager.Services)
             {
-                Delivery delivery = (Delivery)service;
+                Delivery delivery = service as Delivery;
                 delivery.Deliver();
             }
 
-            // local.AddDish(manager.Dishes[1]);
-            // local.AddDish(manager.Dishes[2]);
             switch (Menu.Selected)
             {
                     case 0:
@@ -120,11 +118,6 @@ namespace Manager
                     WriteLine(Environment.NewLine + "─────────────────────────────────────────────────────");
                     WriteLine(Environment.NewLine + "~ Lista de mozos: ~" + Environment.NewLine);
                     manager.ListarWaiters();
-
-
-
-                    
-                    //Falta mejorar, no pude con la funcion en manager. Intente varias cosas pero no se porque no esta funcionando je.
 
                     WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
                     ConsoleKeyInfo option4 = ReadKey();

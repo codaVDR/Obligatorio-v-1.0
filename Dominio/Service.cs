@@ -5,7 +5,6 @@ namespace Dominio
 {
     public class Service
     {
-        // Clase base de los dos servicios: local y delivery
         protected DateTime date;
         protected List<Dish> dishes;
 
@@ -26,7 +25,6 @@ namespace Dominio
     
     public class Delivery : Service
     {
-        // Atributos de la clase derivada de la base
         private string address;
         private float distance;
 
@@ -100,7 +98,6 @@ namespace Dominio
 
     public class Local : Service
     {
-        // Clase derivada de la base Service
         private int table;
         private List<Client> guests;
         private static float cover = 100;
