@@ -10,6 +10,7 @@ namespace Dominio
             Vehicle = vehicle;
         }
         public Vehicle Vehicle { get => vehicle; set => vehicle = value; }
+<<<<<<< HEAD
 
         public static bool ValidoDatos(string name, string last_name)
         {
@@ -29,6 +30,11 @@ namespace Dominio
         public override int GetHashCode()
         {
             return base.GetHashCode();
+=======
+        public override string ToString()
+        {
+            return $"{Last_name} || {Name} || {Vehicle}";
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
         }
     }
 

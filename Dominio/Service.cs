@@ -5,9 +5,8 @@ namespace Dominio
 {
     public class Service
     {
-        // Clase base de los dos servicios: local y delivery
-        private DateTime date;
-        private List<Dish> dishes;
+        protected DateTime date;
+        protected List<Dish> dishes;
 
         public DateTime Date { get => date; set => date = value; }
         public List<Dish> Dishes { get => dishes; set => dishes = value; }
@@ -26,7 +25,6 @@ namespace Dominio
     
     public class Delivery : Service
     {
-        // Atributos de la clase derivada de la base
         private string address;
         private float distance;
 
@@ -34,7 +32,6 @@ namespace Dominio
 
         public Delivery (DateTime date, string address, float distance) : base (date)
         {
-            
             this.address = address;
             this.distance = distance;
         }
@@ -63,6 +60,11 @@ namespace Dominio
             }
         }
 
+        public void Deliver ()
+        {
+            Delivered = new DateTime(2022, 7, 1, 7, 0, 0);
+        }
+
         public float CalculateTotal ()
         {
              /*
@@ -88,16 +90,14 @@ namespace Dominio
             }
             return total + extra;
         }
-
-        public void Deliver ()
+        public override string ToString()
         {
-            Delivered = DateTime.Now;
+            return $"{date} || {address} || {Delivered} || {distance}";
         }
     } 
 
     public class Local : Service
     {
-        // Clase derivada de la base Service
         private int table;
         private List<Client> guests;
         private static float cover = 100;
