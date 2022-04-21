@@ -43,6 +43,7 @@ namespace Dominio
         {
              return obj is Client client && Name == client.Name && Last_name == client.Last_name && Email == client.Email;
         }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();

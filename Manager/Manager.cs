@@ -11,7 +11,13 @@ namespace Manager
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
         private List<Waiter> waiters = new List<Waiter>();
+<<<<<<< HEAD
+        private List<Deliveryman> deliverymen = new List<Deliveryman>();
+
+
+=======
         private List<Service> services = new List<Service>();
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
 
         public Manager()
         {
@@ -41,6 +47,17 @@ namespace Manager
             }
         }
 
+<<<<<<< HEAD
+        public void ListarDeliveryMen()
+        {
+            foreach (var deliveryman in Deliverymen)
+            {
+                WriteLine(deliveryman);
+            }
+        }
+
+        public void PrecargarDishes ()
+=======
         public void ListarDeliveries(DateTime from, DateTime to)
         {
 
@@ -74,6 +91,7 @@ namespace Manager
             
         }
         public void PrecargarDishes()
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
         {
             Dish plato1 = AltaPlato("Sushi", 490);
             Dish plato2 = AltaPlato("Ñoquis", 600);
@@ -105,6 +123,15 @@ namespace Manager
             Waiter waiter5 = AltaMozo("Sofía", "Siena");
         }
 
+<<<<<<< HEAD
+        public void PrecargarDeliveryMen()
+        {
+            Deliveryman deliveryman1 = AltaRepartidor("Roberto", "Fernandez", Vehicle.Bicicleta);
+            Deliveryman deliveryman2 = AltaRepartidor("Mirtha", "Hernandez", Vehicle.Moto);
+            Deliveryman deliveryman3 = AltaRepartidor("Fernando", "Perez", Vehicle.Moto);
+            Deliveryman deliveryman4 = AltaRepartidor("Josefina", "Salomé", Vehicle.Bicicleta);
+            Deliveryman deliveryman5 = AltaRepartidor("Felipe", "Martínez", Vehicle.Pie);
+=======
         public void PrecargarServices()
         {
             Delivery delivery1 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
@@ -112,6 +139,7 @@ namespace Manager
             Delivery delivery3 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
             Delivery delivery4 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
             Delivery delivery5 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20);
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
         }
 
         public void PrecargarDatos()
@@ -119,14 +147,18 @@ namespace Manager
             PrecargarDishes();
             PrecargarClients();
             PrecargarWaiters();
+<<<<<<< HEAD
+            PrecargarDeliveryMen();
+=======
             PrecargarServices();
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
         }
 
         public Client AltaCliente(string name, string last_name, string email, string password)
         {
             bool validado = Client.IsValid(name, last_name, email, password);
 
-            if (validado == false)
+            if (!validado)
                 return null;
 
             Client cliente = new Client(name, last_name, email, password);
@@ -142,7 +174,7 @@ namespace Manager
         {
             bool validado = Waiter.ValidWaiter(name, last_name);
 
-            if (validado == false)
+            if (!validado)
                 return null;
 
             Waiter waiter = new Waiter(name, last_name);
@@ -154,21 +186,44 @@ namespace Manager
 
             return waiter;
         }
+<<<<<<< HEAD
+
+        public Deliveryman AltaRepartidor (string name, string last_name, Vehicle vehicle)
+=======
         public Deliveryman AltaRepartidor(string name, string last_name)
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
         {
-            return null;
+            bool validado = Deliveryman.ValidoDatos(name,last_name);
+
+            if (!validado)
+                return null;
+
+            Deliveryman deliveryman = new Deliveryman(name, last_name, vehicle);
+
+            if (Deliverymen.Contains(deliveryman))
+                deliveryman = null;
+            else
+                deliverymen.Add(deliveryman);
+
+            return deliveryman;
         }
+<<<<<<< HEAD
+
+        public Service AltaServcio ()
+=======
         public Delivery AltaDelivery(DateTime date, string address, float distance)
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
         {
             Delivery delivery = new Delivery(date, address, distance);
             services.Add(delivery);
             return delivery;
         }
+
         public Dish AltaPlato(string name, float price)
         {
             bool validado = Dish.ValidarDatos(name, price);
 
-            if (validado == false)
+            if (!validado)
                 return null;
 
             Dish plato = new Dish(name, price);
@@ -222,16 +277,29 @@ namespace Manager
                 waiters = value;
             }
         }
+<<<<<<< HEAD
+
+        public List<Deliveryman> Deliverymen
+        {
+            get
+            {
+                return deliverymen;
+=======
         public List<Service> Services
         {
             get
             {
                 return services;
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
             }
 
             set
             {
+<<<<<<< HEAD
+                deliverymen = value;
+=======
                 services = value;
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
             }
         }
     }

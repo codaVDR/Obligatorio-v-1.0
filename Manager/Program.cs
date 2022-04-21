@@ -38,8 +38,21 @@ namespace Manager
                     if (option0.Key == ConsoleKey.Enter)
                     {
                         Clear();
+<<<<<<< HEAD
+                        WriteLine("  ~  Lista de platos  ~" + Environment.NewLine);
+                        manager.ListarPlatos();
+
+                        WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
+                        ConsoleKeyInfo option0 = ReadKey();
+                        if (option0.Key == ConsoleKey.Enter)
+                        {
+                            Clear();
+                            Main();
+                        }
+=======
                         Run();
                     }
+>>>>>>> 4fa7e47e774a0a9158d2f41a4a12ac5defe7b0e3
                     break;
                 case 1:
                     Clear();
@@ -112,7 +125,6 @@ namespace Manager
                 case 4:
                     Clear();
                     WriteLine("  ~  Dar alta a un mozo  ~" + Environment.NewLine);
-                    //manager.AltaMozo();
                     WriteLine("Porfavor, ingrese el nombre del mozo: ");
                     string waiterName = ReadLine();
                     WriteLine("Porfavor, ingrese el apellido del mozo: ");
