@@ -8,7 +8,6 @@ namespace Manager
 {
     public class Manager
     {
-
         private List<Dish> dishes = new List<Dish>();
         private List<Client> clients = new List<Client>();
         private List<Waiter> waiters = new List<Waiter>();
@@ -65,12 +64,11 @@ namespace Manager
                 }
 
             }
-            WriteLine("\n\nPresione Enter para volver, cualquier otra tecla para salir.");
             WriteLine("\n───────────────────────────────────────────────────────────────");
             if (listaDeliveries.Count == 0)
             {
                 WriteLine("\n\nNo hay deliveries hechos en ese rango de fechas");
-                WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
+                WriteLine("\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
             }
 
             

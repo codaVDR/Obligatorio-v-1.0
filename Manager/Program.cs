@@ -24,10 +24,9 @@ namespace Manager
             }
         }
                  
-            static void Run ()
-            {
+        static void Run ()
+        {
             Menu.Display();
-
             switch (Menu.Selected)
             {
                 case 0:
