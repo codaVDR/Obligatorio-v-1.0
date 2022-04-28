@@ -17,8 +17,7 @@ namespace Validation
                     ok=true;
             }
 
-            return ok;
-
+           return ok;
         }
 
         public static bool EsValido(string email)
@@ -76,6 +75,7 @@ namespace Validation
 
             return validoNumeros;
         }
+
 
         public static bool EsSegura(string password)
         {

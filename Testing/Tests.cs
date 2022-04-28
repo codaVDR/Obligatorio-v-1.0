@@ -207,10 +207,9 @@ namespace Testing
         {
             string testName = "Adolfo";
             string testLastName = "Bioy Casares";
-            int testWN = 1;
             Manager.Manager testManager = new Manager.Manager();
 
-            Waiter testWaiter = testManager.AltaMozo(testName, testLastName, testWN);
+            Waiter testWaiter = testManager.AltaMozo(testName, testLastName);
 
             Assert.IsNotNull(testWaiter);
         }

@@ -9,23 +9,15 @@ namespace Manager
     {
         static Manager manager = new Manager();
 
-        static void Main()
-        {
-            Setup();
-            Run();    
-        }
 
-        static void Setup ()
-        {
-            foreach (var service in manager.Services)
-            {
-                Delivery delivery = service as Delivery;
-                delivery.Deliver();
-            }
+
+        static void Main()
+        { 
+            Run();   
         }
                  
-            static void Run ()
-            {
+        static void Run ()
+        {
             Menu.Display();
 
             switch (Menu.Selected)

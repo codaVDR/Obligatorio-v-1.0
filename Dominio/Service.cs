@@ -11,10 +11,10 @@ namespace Dominio
         public DateTime Date { get => date; set => date = value; }
         public List<Dish> Dishes { get => dishes; set => dishes = value; }
 
-        public Service (DateTime date)
+        public Service (DateTime date, List<Dish> dishes)
         {
-            this.Dishes = new List<Dish>();
             this.Date = date;
+            this.dishes = dishes;
         }
 
         public void AddDish (Dish dish)
@@ -30,8 +30,9 @@ namespace Dominio
 
         public DateTime Delivered { get; set; }
 
-        public Delivery (DateTime date, string address, float distance) : base (date)
+        public Delivery (DateTime date, string address, float distance, List<Dish> dishes) : base (date, dishes)
         {
+            this.date = date;
             this.address = address;
             this.distance = distance;
         }
@@ -103,12 +104,12 @@ namespace Dominio
         private static float cover = 100;
         
 
-        public Local (DateTime date, int table) : base (date)
-
+        public Local (DateTime date, int table, List<Dish> dishes) : base (date, dishes)
         {
             this.table = table;
             this.guests = new List<Client> ();
         }
+
         public int Table
         {
             get
