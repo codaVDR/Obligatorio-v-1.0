@@ -103,5 +103,26 @@ namespace Validation
             return valido;
         }
 
+        public static bool EsTexto(string texto)
+        {
+            bool valido = false;
+
+            for (int i = 0; i < texto.Length; i++)
+            {
+
+                if (char.IsLetter(texto[i]))
+                {
+                    valido = true;
+                }
+                else
+                {
+                    valido = false;
+                    break;
+                }
+            }
+
+            return valido;
+        }
+
     }
 }

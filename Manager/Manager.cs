@@ -56,7 +56,6 @@ namespace Manager
         public void ListarDeliveries(DateTime from, DateTime to)
         {
             List<Pedido> listaPedidos = new List<Pedido>();
-            List<Delivery> listaDeliveries = new List <Delivery>();
             foreach(var pedido in pedidos)
             {
                 if (pedido.Service is Delivery)
@@ -65,23 +64,21 @@ namespace Manager
                     if (pedido.Date > from && delivery.Delivered < to) 
                     {
                         listaPedidos.Add(pedido);
+                        WriteLine("\n");
+                        ForegroundColor = ConsoleColor.Cyan;
                         WriteLine("  »  " + pedido);
+                        ForegroundColor = ConsoleColor.Green;
                     }
-                    
-
                 }
-
             }
            
             WriteLine("\n\nPresione Enter para volver, cualquier otra tecla para salir.");
             WriteLine("\n───────────────────────────────────────────────────────────────");
-            if (listaDeliveries.Count == 0)
+            if (listaPedidos.Count == 0)
             {
                 WriteLine("\n\nNo hay deliveries hechos en ese rango de fechas");
                 WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
-            }
-
-            
+            }            
         }
         public void PrecargarDatos()
         {

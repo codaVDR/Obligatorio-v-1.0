@@ -21,7 +21,7 @@ namespace Dominio
 
         public static bool ValidWaiter(string name, string last_name)
         {
-            return !string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(last_name) && SinNumeros(name) && SinNumeros(last_name);
+            return !string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(last_name) && EsTexto(name) && EsTexto(last_name);
         }
 
         public override string ToString()
