@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Dominio
 {
-    public class Service
+    public abstract class Service
     {
         protected List<Dish> dishes;
 

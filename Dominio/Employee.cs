@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dominio
 {
-    public class Employee
+    public abstract class Employee
     {
         private static int n = 0;
 
