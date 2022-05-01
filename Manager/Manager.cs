@@ -127,7 +127,13 @@ namespace Manager
             Pedido pedido2 = AltaPedido(local4, cliente5);
             Pedido pedido3 = AltaPedido(delivery4, cliente1);
             Pedido pedido4 = AltaPedido(local5, cliente2);
-            Pedido pedido5 = AltaPedido(delivery2, cliente3);
+            Pedido pedido5 = AltaPedido(local2, cliente3);
+            Pedido pedido6 = AltaPedido(local3, cliente5);
+            Pedido pedido7 = AltaPedido(delivery1, cliente4);
+            Pedido pedido8 = AltaPedido(delivery3, cliente1);
+            Pedido pedido9 = AltaPedido(delivery2, cliente1);
+            Pedido pedido10 = AltaPedido(delivery5, cliente3);
+
 
         }
 
