@@ -5,15 +5,12 @@ namespace Dominio
 {
     public class Service
     {
-        protected DateTime date;
         protected List<Dish> dishes;
 
-        public DateTime Date { get => date; set => date = value; }
         public List<Dish> Dishes { get => dishes; set => dishes = value; }
 
-        public Service (DateTime date, List<Dish> dishes)
+        public Service (List<Dish> dishes)
         {
-            this.Date = date;
             this.dishes = dishes;
         }
 
@@ -29,10 +26,13 @@ namespace Dominio
         private float distance;
 
         public DateTime Delivered { get; set; }
-
-        public Delivery (DateTime date, string address, float distance, List<Dish> dishes) : base (date, dishes)
+        public void Deliver()
         {
-            this.date = date;
+            Delivered = new DateTime(2022, 7, 1, 7, 0, 0);
+        }
+
+        public Delivery (string address, float distance, List<Dish> dishes) : base ( dishes)
+        {
             this.address = address;
             this.distance = distance;
         }
@@ -61,10 +61,6 @@ namespace Dominio
             }
         }
 
-        public void Deliver ()
-        {
-            Delivered = new DateTime(2022, 7, 1, 7, 0, 0);
-        }
 
         public float CalculateTotal ()
         {
@@ -93,7 +89,7 @@ namespace Dominio
         }
         public override string ToString()
         {
-            return $"{date} || {address} || {Delivered} || {distance}";
+            return $"{address} || {distance}";
         }
     } 
 
@@ -104,7 +100,7 @@ namespace Dominio
         private static float cover = 100;
         
 
-        public Local (DateTime date, int table, List<Dish> dishes) : base (date, dishes)
+        public Local (int table, List<Dish> dishes) : base (dishes)
         {
             this.table = table;
             this.guests = new List<Client> ();
