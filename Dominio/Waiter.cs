@@ -4,14 +4,14 @@ using static Validation.Validator;
 
 namespace Dominio
 {
-    public class Waiter : Person
+    public class Waiter : Employee
     {
         private int wNum = 0;
 
         static public int num = 0;
 
 
-        public Waiter(string name, string last_name) : base (name, last_name)
+        public Waiter(string name, string lastName) : base (name, lastName)
         {
             WNum = num;
             num++;
@@ -26,12 +26,12 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{Last_name} || {Name} || {WNum}";
+            return $"{LastName} || {Name} || {WNum}";
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Waiter waiter && Name == waiter.Name && Last_name == waiter.Last_name && WNum == waiter.WNum;
+            return obj is Waiter waiter && Name == waiter.Name && LastName == waiter.LastName && WNum == waiter.WNum;
         }
         public override int GetHashCode()
         {

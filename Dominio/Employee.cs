@@ -4,25 +4,25 @@ using System.Text;
 
 namespace Dominio
 {
-    public abstract class Person
+    public class Employee
     {
         private static int n = 0;
 
         private int iD;
         private string name;
-        private string last_name;
+        private string lastName;
 
-        public Person(string name, string last_name)
+        public Employee(string name, string lastName)
         {
             ID = n;
             Name = name;
-            Last_name = last_name;
+            LastName = lastName;
 
             n++;
         }
 
         public int ID { get => iD; set => iD = value; }
         public string Name { get => name; set => name = value; }
-        public string Last_name { get => last_name; set => last_name = value; }
+        public string LastName { get => lastName; set => lastName = value; }
     }
 }

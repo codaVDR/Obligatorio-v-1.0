@@ -2,7 +2,7 @@
 
 namespace Dominio
 {
-    public class Deliveryman : Person
+    public class Deliveryman : Employee
     {
         private Vehicle vehicle;
         public Deliveryman(string name, string last_name, Vehicle vehicle) : base (name, last_name)
@@ -18,12 +18,16 @@ namespace Dominio
         public Vehicle Vehicle { get => vehicle; set => vehicle = value; }
         public override string ToString()
         {
-            return $"{Last_name} || {Name} || {Vehicle}";
+            return $"{LastName} || {Name} || {Vehicle}";
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Deliveryman repartidor && Name == repartidor.Name && Last_name == repartidor.Last_name && vehicle == repartidor.vehicle;
+            return obj is Deliveryman repartidor && Name == repartidor.Name && LastName == repartidor.LastName && vehicle == repartidor.vehicle;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 

@@ -4,23 +4,38 @@ using static Validation.Validator;
 
 namespace Dominio
 {
-    public class Client : Person
+    public class Client
     {
+        private static int n = 0;
+
+        private int iD;
+        private string name;
+        private string lastName;
+
         private string email;
         private string password;
 
         public string Email { get => email; set => email = value; }
         public string Password { get => password; set => password = value; }
+        public int ID { get => iD; set => iD = value; }
+        public string Name { get => name; set => name = value; }
+        public string LastName { get => lastName; set => lastName = value; }
 
-        public Client (string name, string last_name, string email, string password) : base (name, last_name)
+        public Client (string name, string lastName, string email, string password)
         {
+            this.ID = n;
+
+            this.name = name;
+            this.lastName = lastName;
             this.Email = email;
             this.Password = password;
+
+            n++;
         }
 
         public static int CompareByLastName (Client client_one, Client client_two)
         {
-            return String.Compare(client_one.Last_name, client_two.Last_name);
+            return String.Compare(client_one.LastName, client_two.LastName);
         }
 
         public static bool IsValid (string name, string last_name, string email, string password)
@@ -36,12 +51,12 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{Last_name} || {Name} || {Email}";
+            return $"{LastName} || {Name} || {Email}";
         }
 
         public override bool Equals(object obj)
         {
-             return obj is Client client && Name == client.Name && Last_name == client.Last_name && Email == client.Email;
+             return obj is Client client && Name == client.Name && LastName == client.LastName && Email == client.Email;
         }
         public override int GetHashCode()
         {
