@@ -67,6 +67,10 @@ namespace Manager
                         WriteLine("\n");
                         ForegroundColor = ConsoleColor.Cyan;
                         WriteLine("  »  " + pedido);
+                        foreach (var dish in pedido.Service.Dishes)
+                        {
+                            WriteLine("  »  »  " + dish);
+                        }
                         ForegroundColor = ConsoleColor.Green;
                     }
                 }
