@@ -75,7 +75,6 @@ namespace Manager
                     manager.ListarDeliveries(fechaInicio, fechaFinal);
                     ReadKey();
 
-
                     Clear();
                     Run();
 
