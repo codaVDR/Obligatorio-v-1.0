@@ -56,12 +56,12 @@ namespace Manager
         public void ListarDeliveries(DateTime from, DateTime to)
         {
             List<Pedido> listaPedidos = new List<Pedido>();
-            foreach(var pedido in pedidos)
+            foreach (var pedido in pedidos)
             {
                 if (pedido.Service is Delivery)
                 {
                     Delivery delivery = (Delivery)pedido.Service;
-                    if (pedido.Date > from && delivery.Delivered < to) 
+                    if (pedido.Date > from && delivery.Delivered < to)
                     {
                         listaPedidos.Add(pedido);
                         WriteLine("\n");
@@ -75,15 +75,16 @@ namespace Manager
                     }
                 }
             }
-           
-            WriteLine("\n\nPresione Enter para volver, cualquier otra tecla para salir.");
+
             WriteLine("\n───────────────────────────────────────────────────────────────");
             if (listaPedidos.Count == 0)
             {
-                WriteLine("\n\nNo hay deliveries hechos en ese rango de fechas");
-                WriteLine("\n\n\n\n\n───────────────────────────────────────────────────────────────\nPresione Enter para volver, cualquier otra tecla para salir.");
-            }            
+                WriteLine("\nNo hay deliveries hechos en ese rango de fechas");
+                WriteLine("\n───────────────────────────────────────────────────────────────\n");
+            }
+            WriteLine("\nPresione Enter para volver, cualquier otra tecla para salir.");
         }
+
         public void PrecargarDatos()
         {
             Dish plato1 = AltaPlato("Sushi", 490);

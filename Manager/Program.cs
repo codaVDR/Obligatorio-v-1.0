@@ -130,6 +130,11 @@ namespace Manager
                     if (success)
                     {
                         Dish.UpdateMinimum(newMinimum);
+                        foreach (var dish in manager.Dishes)
+                        {
+                            if (dish.Price < newMinimum)
+                                dish.Price = newMinimum;
+                        }
                         WriteLine(Environment.NewLine + "─────────────────────────────────────────────────────");
                         ForegroundColor = ConsoleColor.Cyan;
                         WriteLine($"{Environment.NewLine} El nuevo precio mínimo es » {Dish.minimumPrice} «\n ");
