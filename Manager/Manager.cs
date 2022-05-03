@@ -37,34 +37,57 @@ namespace Manager
         }
         public void ListarClientes()
         {
-            Clients.Sort(Client.CompareByLastName);
-            foreach (var client in Clients)
+            if (Clients.Count > 0)
             {
-                WriteLine("  »  " + client);
+                Clients.Sort(Client.CompareByLastName);
+                foreach (var client in Clients)
+                {
+                    WriteLine("  »  " + client);
+                }
+            } else
+            {
+                WriteLine("  »  No hay clientes cargados en el sistema.");
             }
         }
         public void ListarWaiters()
         {
-            foreach (var waiter in Waiters)
+            if (Waiters.Count > 0)
             {
-                WriteLine(waiter);
+                foreach (var waiter in Waiters)
+                {
+                    WriteLine(waiter);
+                }
+            } else
+            {
+                WriteLine("  »  No hay mozos cargados en el sistema.");
             }
         }
 
-        public string ListarRepartidores()
+        public void ListarRepartidores()
         {
-            foreach (var repartidor in Deliverymen)
+            if (Deliverymen.Count > 0)
             {
-                WriteLine("  »  " + repartidor);
+                foreach (var repartidor in Deliverymen)
+                {
+                    WriteLine("  »  " + repartidor);
+                }
+            } else
+            {
+                WriteLine("  »  No hay repartidores cargados en el sistema.");
             }
-            return null;
         }
 
         public void ListarPedidos()
         {
-            foreach (var pedido in Pedidos)
+            if (Pedidos.Count > 0)
             {
-                WriteLine(pedido);
+                foreach (var pedido in Pedidos)
+                {
+                    WriteLine(pedido);
+                }
+            } else
+            {
+                WriteLine("  »  No hay pedidos cargados en el sistema.");
             }
         }
 

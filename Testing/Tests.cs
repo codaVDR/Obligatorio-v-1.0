@@ -133,31 +133,6 @@ namespace Testing
         }
 
     }
-
-    [TestClass]
-    public class TestDelivery
-    {
-        [TestMethod]
-        public void TestCalculateTotal ()
-        {
-            Client testClient1 = new Client("Rodolfo", "Mondolfo", "rodolfo@mondolfo.com", "Rodo1234");
-            Client testClient2 = new Client("Américo", "Castro", "americo@castro.com", "Castro1234");
-            Dish testDish1 = new Dish ("Sushi", 400);
-            Dish testDish2 = new Dish("Rabas", 600);
-            //testLocal.AddDish(testDish1);
-            //testLocal.AddDish(testDish2);
-            //testLocal.AddGuest(testClient1);
-            //testLocal.AddGuest(testClient2);
-            //float cover = testLocal.Cover;
-
-            //float basePrice = 400 + 600 + testLocal.Guests.Count * cover;
-            //float tip = (float)(basePrice * 0.1);
-            //float expectedResult = basePrice + tip;
-
-            //Assert.AreEqual(expectedResult, testLocal.CalculateTotal());
-         }
-    }
-
     [TestClass]
     public class AutoIDTest
     {
