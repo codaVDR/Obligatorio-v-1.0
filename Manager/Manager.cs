@@ -24,9 +24,15 @@ namespace Manager
 
         public void ListarPlatos()
         {
-            foreach (var dish in Dishes)
+            if (Dishes.Count > 0)
             {
-                WriteLine("  »  " + dish);
+                foreach (var dish in Dishes)
+                {
+                    WriteLine("  »  " + dish);
+                }
+            } else
+            {
+                WriteLine("  »  No hay platos cargados en el sistema.");
             }
         }
         public void ListarClientes()
