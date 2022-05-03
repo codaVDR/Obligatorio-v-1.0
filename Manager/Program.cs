@@ -64,19 +64,24 @@ namespace Manager
                     break;
                 case 2:
                     Clear();
-                    WriteLine("Porfavor ingresar año de inicio");
+                    WriteLine(manager.ListarRepartidores());
+                    WriteLine("\nPor favor, ingresar ID de delivery");
+                    ForegroundColor = ConsoleColor.Cyan;
+                    string deliveryId= ReadLine();
+                    ForegroundColor = ConsoleColor.Green;
+                    WriteLine("\nPor favor, ingresar año de inicio");
                     ForegroundColor = ConsoleColor.Cyan;
                     string añoInicio = ReadLine();
                     ForegroundColor = ConsoleColor.Green;
-                    WriteLine("\nPorfavor ingresar mes de inicio");
+                    WriteLine("\nPor favor, ingresar mes de inicio");
                     ForegroundColor = ConsoleColor.Cyan;
                     string mesInicio = ReadLine();
                     ForegroundColor = ConsoleColor.Green;
-                    WriteLine("\nPorfavor ingresar dia de inicio");
+                    WriteLine("\nPor favor, ingresar dia de inicio");
                     ForegroundColor = ConsoleColor.Cyan;
                     string diaInicio = ReadLine();
                     ForegroundColor = ConsoleColor.Green;
-                    WriteLine("\nPorfavor ingresar año final");
+                    WriteLine("\nPor favor, ingresar año final");
                     ForegroundColor = ConsoleColor.Cyan;
                     string añoFinal = ReadLine();
                     ForegroundColor = ConsoleColor.Green;
@@ -90,6 +95,8 @@ namespace Manager
                     ForegroundColor = ConsoleColor.Green;
                     try
                     {
+                        ///NO HAY que hacer tryparse?
+                        int repartidorId = Int32.Parse(deliveryId);
                         int añoInicioParse = Int32.Parse(añoInicio);
                         int mesInicioParse = Int32.Parse(mesInicio);
                         int diaInicioParse = Int32.Parse(diaInicio);
@@ -100,7 +107,7 @@ namespace Manager
                         DateTime fechaInicio = new DateTime(añoInicioParse, mesInicioParse, diaInicioParse);
                         DateTime fechaFinal = new DateTime(añoFinalParse, mesFinalParse, diaFinalParse);
 
-                        manager.ListarDeliveries(fechaInicio, fechaFinal);
+                        manager.ListarDeliveries(fechaInicio, fechaFinal, repartidorId);
                         ReadKey();
                         Clear();
                         Run();

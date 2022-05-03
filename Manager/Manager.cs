@@ -45,6 +45,15 @@ namespace Manager
             }
         }
 
+        public string ListarRepartidores()
+        {
+            foreach (var repartidor in Deliverymen)
+            {
+                WriteLine(repartidor);
+            }
+            return null;
+        }
+
         public void ListarPedidos()
         {
             foreach (var pedido in Pedidos)
@@ -53,13 +62,15 @@ namespace Manager
             }
         }
 
-        public void ListarDeliveries(DateTime from, DateTime to)
+        public void ListarDeliveries(DateTime from, DateTime to, int ID)
         {
             List<Pedido> listaPedidos = new List<Pedido>();
             foreach (var pedido in pedidos)
             {
                 if (pedido.Service is Delivery)
                 {
+                    if (pedido.DeliveryAsociado.ID == ID)
+                    {
                     Delivery delivery = (Delivery)pedido.Service;
                     if (pedido.Date > from && delivery.Delivered < to)
                     {
@@ -72,6 +83,8 @@ namespace Manager
                             WriteLine("  »  »  " + dish);
                         }
                         ForegroundColor = ConsoleColor.Green;
+                    }
+
                     }
                 }
             }
@@ -104,6 +117,12 @@ namespace Manager
             Waiter waiter4 = AltaMozo("Romina", "Hernández");
             Waiter waiter5 = AltaMozo("Sofía", "Siena");
 
+            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto);
+            Deliveryman repartidor2 = AltaRepartidor("Juan", "Pérez", Vehicle.Bicicleta);
+            Deliveryman repartidor3 = AltaRepartidor("Gonzalo", "Pereira", Vehicle.Pie);
+            Deliveryman repartidor4 = AltaRepartidor("Alejandro", "Marella", Vehicle.Bicicleta);
+            Deliveryman repartidor5 = AltaRepartidor("Roberto", "Sánchez", Vehicle.Moto);
+
             Delivery delivery1 = AltaDelivery(DateTime.Now, "Calle Falsa 122", 20, new List<Dish>() {plato1, plato7});
             Delivery delivery2 = AltaDelivery(DateTime.Now, "Calle Falsa 126", 20, new List<Dish>() { plato5, plato10, plato6 });
             Delivery delivery3 = AltaDelivery(DateTime.Now, "Calle Falsa 123", 20, new List<Dish>() { plato6});
@@ -122,32 +141,34 @@ namespace Manager
             Local local4 = AltaLocal(1, cliente4, new List<Dish>() { plato8, plato4 });
             Local local5 = AltaLocal( 3, cliente5, new List<Dish>() { plato9, plato10, plato5 });
 
-            Deliveryman repartidor1 = AltaRepartidor("Agustina", "Balsas", Vehicle.Moto);
-            Deliveryman repartidor2 = AltaRepartidor("Juan", "Pérez", Vehicle.Bicicleta);
-            Deliveryman repartidor3 = AltaRepartidor("Gonzalo", "Pereira", Vehicle.Pie);
-            Deliveryman repartidor4 = AltaRepartidor("Alejandro", "Marella", Vehicle.Bicicleta);
-            Deliveryman repartidor5 = AltaRepartidor("Roberto", "Sánchez", Vehicle.Moto);
 
-            Pedido pedido1 = AltaPedido(local1, cliente4);
-            Pedido pedido2 = AltaPedido(local4, cliente5);
-            Pedido pedido3 = AltaPedido(delivery4, cliente1);
-            Pedido pedido4 = AltaPedido(local5, cliente2);
-            Pedido pedido5 = AltaPedido(local2, cliente3);
-            Pedido pedido6 = AltaPedido(local3, cliente5);
-            Pedido pedido7 = AltaPedido(delivery1, cliente4);
-            Pedido pedido8 = AltaPedido(delivery3, cliente1);
-            Pedido pedido9 = AltaPedido(delivery2, cliente1);
-            Pedido pedido10 = AltaPedido(delivery5, cliente3);
-
-
+            Pedido pedido1 = AltaPedido(local1, cliente4, null);
+            Pedido pedido2 = AltaPedido(local4, cliente5, null);
+            Pedido pedido3 = AltaPedido(delivery4, cliente1, repartidor2);
+            Pedido pedido4 = AltaPedido(local5, cliente2, null);
+            Pedido pedido5 = AltaPedido(local2, cliente3, null);
+            Pedido pedido6 = AltaPedido(local3, cliente5, null);
+            Pedido pedido7 = AltaPedido(delivery1, cliente4, repartidor1);
+            Pedido pedido8 = AltaPedido(delivery3, cliente1, repartidor4);
+            Pedido pedido9 = AltaPedido(delivery2, cliente1, repartidor4);
+            Pedido pedido10 = AltaPedido(delivery5, cliente3, repartidor3);
         }
 
-        public Pedido AltaPedido(Service service, Client client)
+        public Pedido AltaPedido(Service service, Client client, Deliveryman delivery)
         {
-            Pedido pedido = new Pedido(service, client);
-            pedidos.Add(pedido);
-            return pedido;
-            
+            if (service is Delivery)
+            {
+                Pedido pedido = new Pedido(service, client, delivery);
+                pedidos.Add(pedido);
+                return pedido;
+
+            } else if (service is Local)
+            {
+                Pedido pedido = new Pedido(service, client);
+                pedidos.Add(pedido);
+                return pedido;
+            }
+            return null;
         }
 
         public Client AltaCliente(string name, string last_name, string email, string password)

@@ -25,6 +25,7 @@ namespace Dominio
         private string address;
         private float distance;
 
+
         public DateTime Delivered { get; set; }
         public void Deliver()
         {
