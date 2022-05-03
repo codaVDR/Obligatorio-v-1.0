@@ -24,6 +24,7 @@ namespace Dominio
     {
         private string address;
         private float distance;
+        private Deliveryman deliveryman;
 
 
         public DateTime Delivered { get; set; }
@@ -32,10 +33,11 @@ namespace Dominio
             Delivered = new DateTime(2022, 7, 1, 7, 0, 0);
         }
 
-        public Delivery (string address, float distance, List<Dish> dishes) : base ( dishes)
+        public Delivery (string address, float distance, Deliveryman deliveryman, List<Dish> dishes) : base ( dishes)
         {
             this.address = address;
             this.distance = distance;
+            this.deliveryman = deliveryman;
         }
 
         public string Address
@@ -62,6 +64,7 @@ namespace Dominio
             }
         }
 
+        public Deliveryman Deliveryman { get => deliveryman; set => deliveryman = value; }
 
         public float CalculateTotal ()
         {

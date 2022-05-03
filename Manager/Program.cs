@@ -64,6 +64,7 @@ namespace Manager
                     break;
                 case 2:
                     Clear();
+                    ForegroundColor = ConsoleColor.Cyan;
                     WriteLine(manager.ListarRepartidores());
                     WriteLine("\nPor favor, ingresar ID de delivery");
                     ForegroundColor = ConsoleColor.Cyan;

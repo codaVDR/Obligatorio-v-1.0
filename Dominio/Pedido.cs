@@ -37,7 +37,15 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{service} || {client} || {date} || Delivery: {deliveryAsociado.Name}";
+            if (service is Delivery)
+            {
+                Delivery delivery = (Delivery)service;
+                return $"{service} || {client} || {date} || Delivery: {delivery.Deliveryman.Name}";
+            }  else
+            {
+                return $"{service} || {client} || {date}";
+            }
+            
         }
     }
 }
