@@ -120,7 +120,8 @@ namespace Manager
             WriteLine("\n───────────────────────────────────────────────────────────────");
             if (listaPedidos.Count == 0)
             {
-                WriteLine("\nNo hay deliveries hechos en ese rango de fechas");
+                WriteLine("\nNo hay deliveries para ese repartidor en ese rango de fechas.");
+                WriteLine("\nCorrobora que la fecha y el ID ingresado son correctos.");
                 WriteLine("\n───────────────────────────────────────────────────────────────\n");
             }
             WriteLine("\nPresione Enter para volver, cualquier otra tecla para salir.");
